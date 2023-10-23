@@ -1,0 +1,97 @@
+.checkpoint-header {
+  height: 50px;
+  width: 90%;
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: calc(20px + 1vw);
+  position: relative;
+}
+
+.checkpoint-header h1 {
+  font-size: calc(12px + 0.4vw);
+  position: absolute;
+  background: white;
+  right: 0;
+  padding: 0 10px;
+}
+
+.section-container {
+  min-width: 70%;
+  max-width: 90%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 50px;
+}
+.section-container h2 {
+  font-size: calc(20px + 0.4vw);
+}
+
+.question-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+
+
+.question-container-question {
+  max-width: 70%;
+}
+.score-buttons {
+  min-width: 30%;
+}
+
+.unselect-1-5 {
+  background: inherit;
+  border: 1px solid red;
+  border-radius: 20%;
+  margin-right: 10px;
+  font-size: calc(12px + 0.3vw);
+  color: gray;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.select-1-5 {
+  background-color: rgb(245, 200, 200);
+  border: 1px solid red;
+  border-radius: 20%;
+  margin-right: 10px;
+  font-size: calc(12px + 0.3vw);
+  padding: 10px;
+  cursor: pointer;
+
+}
+
+.unselect-1-5:hover {
+  background-color: rgb(245, 200, 200);
+  color: black;
+}
+
+.section-nav {
+  min-width: 50%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 50px;
+}
+
+.step-nav-btn {
+  height: 40px;
+  font-size: calc(12px + 0.3vw);
+  margin: 0;
+  padding: 0 13px;
+  cursor: pointer;
+  border: none;
+  transition: 0.1s ease-in;
+}
+
+.step-nav-btn:hover {
+  background: black;
+  color: white;
+}
+
+@media screen and (max-width: 900px){
+  .question-container{flex-direction: column;}
+  .section-container h2 {display: flex; justify-content: center;}
+}

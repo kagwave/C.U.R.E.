@@ -1,0 +1,154 @@
+#login {
+  position: absolute;
+  z-index: 100;
+  height: inherit;
+  width: inherit;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  display: flex;
+}
+
+#login-modal {
+  position: relative;
+  background:white;
+  height: fit-content;
+  width: 50%;
+  min-width: 400px;
+  height: 50vh;
+  margin: auto;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  border: 1px solid white;
+}
+
+
+.login-header {
+  width: 100%;
+  height: 10%;
+  opacity: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: #CC0000;
+  border-radius: 10px 10px 0 0 ;
+}
+.login-header-text  {
+  font-size: calc(15px + 0.3vw);
+  display: flex;
+  color: white;
+  margin-left: 25px;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-header-text h1 {
+  font-family: "Univers";
+  font-size: calc(15px + 0.3vw);
+  color: white;
+  margin-left: 10px;
+  text-align: center;
+ 
+}
+
+.login-body {
+  display: flex;
+  height: 80%;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: whitesmoke;
+}
+
+.login-options {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-evenly;
+}
+
+.login-option {
+  background: white;
+  min-height: 100px;
+  min-width: 200px;
+  border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.login-option:hover {
+  background: #eaafaf;
+}
+
+.login-option h1 {
+  font-family: "Univers";
+  font-size: calc(14px + 0.2vw);
+  margin: 10px 0 0 0;
+}
+
+
+
+
+
+
+.login-footer {
+  width: 100%;
+  height: 10%;
+  border-radius: 0 0 10px 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background: #CC0000;
+  text-align: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.modal-footer-text {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 9px;
+  color: white;
+  text-align: center;
+  padding: 3px;
+}
+
+
+
+/* The Close Button */
+.close {
+  position: absolute;
+  color: black;
+  float: right;
+  top: 0;
+  right: 10px;
+  padding: 5px;
+  font-size: 30px;
+  font-weight: bold;
+  z-index: 10;
+}
+
+
+.close:hover,
+.close:focus {
+  color: #000;
+  transition: color 0.1s ease-in-out;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+@media screen and (max-width: 1300px) {
+  .login-options {flex-direction: column; align-items: center; justify-content: space-evenly;}
+  .login-option {width: 50%;}
+}
