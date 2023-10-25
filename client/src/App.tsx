@@ -2,11 +2,15 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import './fonts.css'
 import './media/loaders/macOS.css'
-import './media/loaders/basic.css'
+import './media/loaders/basic.css';
+
+import { axiosClient } from './utils/axios/axiosClient';
+import { login, logout } from './redux/slices/auth';
 
 //React Hooks
-import { useEffect, useState } from 'react';
-import { useRoutes } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useNavigate, useRoutes } from 'react-router-dom';
+
 
 //UI
 import Header from './components/interface/Header';
@@ -17,6 +21,9 @@ import Footer from './components/interface/Footer';
 import Home from './components/pages/Home/Home';
 import Login from './components/pages/User/Login';
 import PageNotFound from './components/pages/PageNotFound';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from './redux/store';
+
 
 const routes = [
   { path: '/', element: <Home /> },
@@ -31,6 +38,12 @@ function App() {
 
   const element = useRoutes(routes);
 
+
+  const { isLoggedIn, user } = useSelector((state: RootState) => state.auth);
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   useEffect(() => {
     AOS.init({
       duration : 2000,
@@ -38,6 +51,22 @@ function App() {
     });
     updateDimensions();
     window.addEventListener('resize', updateDimensions);
+
+    (async () => {
+      try {
+        let response = await axiosClient.get('/auth/user', {withCredentials: true});
+        console.log(response.data);
+        if (Object.keys(response.data).length > 0){
+          dispatch(login({user: response.data, userType: 'student'}));
+          console.log(isLoggedIn, user)
+        } else {
+          dispatch(logout());
+        }
+        return;
+      } catch (err) {
+        //error alert
+      }
+    })();
   }, []);
 
   const updateDimensions = () => {

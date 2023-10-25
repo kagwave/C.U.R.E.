@@ -1,17 +1,20 @@
 import './Login.css'
 
-import { useEffect } from 'react';
-
-import { serverUrl } from '../../../utils/urls';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux'
+import { setUserType } from '../../../redux/slices/auth';
 
 import ModalOverlay from '../../interface/ModalOverlay';
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBuildingColumns } from '@fortawesome/free-solid-svg-icons';
 
+import auth from '../../../utils/auth/auth';
+
 const Login = () => {
 
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const handler = (e: any) => {
@@ -24,10 +27,6 @@ const Login = () => {
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  const login = () => {
-    window.open(`${serverUrl}/auth/google`, '_blank');
-  }
 
   return (
     <div id="page-content" style={{background: 'red'}}>
@@ -46,7 +45,9 @@ const Login = () => {
 
           <div className='login-options'>
 
-            <div className='login-option' onClick={login}>
+            <div className='login-option' 
+              onClick={() => {dispatch(setUserType('student')); auth.login()}}
+            >
               <i className="fa-light fa-graduation-cap"></i>
               <h1>Student</h1>
             </div>

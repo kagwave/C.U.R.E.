@@ -16,6 +16,7 @@
   },
   "include":[ 
     "./src/types/*", 
+    "./src/types/user.d.ts",
   ],
   "exclude":[ 
     "./node_modules",
@@ -23,6 +24,7 @@
   ],
   "typeRoots": [
     "./src/types/*",
+    "./src/types/user.d.ts",
     "node_modules/@types"
   ],
 }

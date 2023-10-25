@@ -9,28 +9,35 @@ const googleParams = {
 
 let loginRedirect: string;
 
-declare module 'express' {
-  interface Request {
-    user?: any,
-    account?: any,
-    logOut?: any,
-    logIn?: any,
-  }
-}
-
 const authenticationController = {
+
+  getUser (req: express.Request, res: express.Response) {
+    if (req.user) {
+      let currentUser: any = req.user;
+      res.json(currentUser);
+    } else {
+      res.json({});
+    }
+  },
+
+  logout (req: express.Request, res: express.Response, next: express.NextFunction) {
+    req.logOut(function(err) {
+      if (err) {console.log(err);return res.status(404).send("Error logging out.")}
+      else {res.status(200).send("Ok")}
+    });
+
+  },
 
   google: {
 
-    auth (req: express.Request, res: express.Response, next: express.NextFunction) {
-      console.log(req.query)
-      passport.authenticate('google-auth', { 
+    auth: (req: express.Request, res: express.Response, next: express.NextFunction) => {
+      passport.authenticate('google', { 
         scope : ['email', 'profile'], ...googleParams
-      })
+      })(req, res, next);
     },
   
     redirect (req: express.Request, res: express.Response, next: express.NextFunction) {
-      passport.authenticate('google-auth', (err, user, info) => {
+      passport.authenticate('google', (err, user, info) => {
         if (err) { return next(err); }
         if (!user) { 
           return res.redirect(`${hostUrl}/login`);
@@ -44,7 +51,7 @@ const authenticationController = {
           });
         }
       })(req, res, next)
-    },
+    }
 
   }
 

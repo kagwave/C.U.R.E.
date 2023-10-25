@@ -7,7 +7,7 @@ import Memory from 'memorystore';
 import helmet from 'helmet';
 import cors from 'cors';
 import path from 'path';
-import { hostUrl } from './utils/urls';
+import { hostUrl, serverUrl } from './utils/urls';
 
 //Authentication
 import passport from 'passport';
@@ -26,7 +26,7 @@ class App {
   private server: http.Server | https.Server;
   public metadata: ServiceMetadata;
   
-  constructor(config: ServiceConfig, metadata: ServiceMetadata) {
+  constructor (config: ServiceConfig, metadata: ServiceMetadata) {
 
     const { port, router, staticPath } = config;
 
@@ -55,7 +55,12 @@ class App {
     this.app.use(express.json());
     this.app.use(express.urlencoded({ extended: true }));
     this.app.use(function (req: Request, res: Response, next: NextFunction) {
-      res.setHeader('Access-Control-Allow-Origin', hostUrl);
+      const allowedOrigins = [hostUrl, serverUrl, null]; // Allow requests from null origin
+      const origin = req.headers.origin || null; // If the origin is null, set it explicitly
+      console.log(origin);
+      if (allowedOrigins.includes(origin)) {
+        res.setHeader('Access-Control-Allow-Origin', origin!);
+      }
       res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
       res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
       res.setHeader('Access-Control-Allow-Credentials', 'true');
@@ -64,10 +69,10 @@ class App {
     this.app.use(helmet());
     const corsOptions = {
       methods: ['GET', 'POST', 'PUT'],
-      origin: hostUrl,
+      origin: hostUrl, // Set default origin if needed
       credentials: true,
     };
-    this.app.options('*', cors(corsOptions));
+    this.app.use(cors(corsOptions));
     this.app.set('trust proxy', 1);
     this.app.disable('x-powered-by');
     this.app.use(require('cookie-parser')());
@@ -103,7 +108,7 @@ class App {
   }
 
   private connectDB() {
-    //mongooseConnect(process.env.ATLAS_URI!);
+    mongooseConnect(process.env.ATLAS_URI!);
   }
 
   public createServer(options: ServiceConfig): void {

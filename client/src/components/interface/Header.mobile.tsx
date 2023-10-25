@@ -1,5 +1,5 @@
 import './Header.mobile.css';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router';
 import { NavLink } from 'react-router-dom';
 

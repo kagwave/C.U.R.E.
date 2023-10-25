@@ -1,14 +1,23 @@
 import './Header.css';
+import React from 'react';
 
 import { useLocation, useNavigate } from 'react-router-dom';
 
-import logo from '../../media/images/ncsu.png'
 import { NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../redux/store';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 
-const Header = (props: any) => {
+import logo from '../../media/images/ncsu.png';
+import auth from '../../utils/auth/auth';
+
+const Header = () => {
   
   const navigate = useNavigate();
   const { pathname } = useLocation();
+
+  const { isLoggedIn, user } = useSelector((state: RootState) => state.auth);
 
   return ( 
     <div id="header">
@@ -30,7 +39,26 @@ const Header = (props: any) => {
         {<div className="menuoptions">
           
           {pathname !== "/" && <NavLink className="navlink" to="/"> Home </NavLink>}
-          <NavLink className="navlink" to="/login">Login</NavLink>
+
+          {!isLoggedIn ?
+            <NavLink className="navlink" to="/login">Login</NavLink>
+          :
+            <div className="dropdown navlink">
+              <NavLink to="/account" className="dropbtn">
+                <img src={user.profile_photo} id="profile_icon" alt={user.display_name}/>
+                {user.unity_id}
+                <span className="freespace"></span>
+                <FontAwesomeIcon className="caret" icon={faCaretDown} size="xs"/>
+              </NavLink>
+              <div className="dropdown-content-container" style={{marginTop: 5}}>
+                <div className="menu-gap-fill"></div>
+                <div className="dropdown-content fade-in-quick" >
+                  <NavLink className="navlink" to="/account"> Account </NavLink>
+                  <div className="navlink" onClick={auth.logout}> Logout </div >
+                </div>
+              </div>
+            </div>
+          }
 
         </div>}
 
