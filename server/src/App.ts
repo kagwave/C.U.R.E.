@@ -57,7 +57,6 @@ class App {
     this.app.use(function (req: Request, res: Response, next: NextFunction) {
       const allowedOrigins = [hostUrl, serverUrl, null]; // Allow requests from null origin
       const origin = req.headers.origin || null; // If the origin is null, set it explicitly
-      console.log(origin);
       if (allowedOrigins.includes(origin)) {
         res.setHeader('Access-Control-Allow-Origin', origin!);
       }

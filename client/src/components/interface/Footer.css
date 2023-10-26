@@ -40,21 +40,23 @@
 
 .footer-links a {
   font-size: 12px;
-  font-family: 'Aspergit';
+  font-family: 'Univers';
+  color: white;
   font-weight: bold;
   border: none;
   text-decoration: none;
-  color: black;
 }
 
 .footer-links a:hover {
-  color: red;
+  color: gray
 }
 
 .footer-links li {
   margin-right: 10px;
   list-style-type: none;
   text-indent: none;
+  font-family: 'Univers';
+  color: white;
 }
 
 #footer-credits{
@@ -63,23 +65,27 @@
   justify-content: center;
   margin-top: 5px;
   align-items: center;
+  font-family: 'Univers';
+  color: white;
 }
 
 .footer-text {
   text-align: center;
   z-index:3;
   margin: auto;
+  font-family: 'Univers';
+  color: white;
 }
 
 .footer-text h1{
   font-size: 13px;
-  font-family: 'Questrial';
-  color: #838383;
+  font-family: 'Univers';
+  color: white;
 }
 .footer-text h2{
   font-size: 9px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  color: #464646;
+  font-family: 'Univers';
+  color: white;
 }
 
 .footer-text h6{
@@ -117,15 +123,16 @@
 }
 
 .fa-facebook {
-  color: #3B5998;
+  color: white;
 }
 
 .fa-twitter {
-  color: #55ACEE;
+  color: white
 }
 
 .fa-instagram {
   border-radius: 5px;
   width: 30px;
   height: 30px;
+  color:white;
 }

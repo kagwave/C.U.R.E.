@@ -1,4 +1,5 @@
 import './Footer.css';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -14,20 +15,20 @@ const Footer = () => {
       
       <div id="footer-container"> 
 
-        <div className="footer-links">
-          <li><NavLink to="/mission/">Collaborats</NavLink></li>
-          <li><NavLink to="/partners">NCSU CSC</NavLink></li>
+        <div className="footer-text"> 
+          <div id="footer-credits">
+            {<img className="sponsor-logo" alt="NCSU" style={{borderRadius: '5px', margin: '0 0 10px 0'}} height="200%" src={ncsu} />}
+          </div>
+          <h1>
+            Department of Chemistry
+          </h1>
+          <h2>chemistry.sciences.ncsu.edu</h2>
         </div>
 
-        <div className="footer-text"> 
-          <h1>This was built at North Carolina State University.</h1>
-          <hr/>
-          <div id="footer-credits">
-            <h2>powered by</h2>
-            {<img className="sponsor-logo" alt="CauseClosed" style={{borderRadius: '5px', margin: '0 6px 0px 6px'}} height="100%" src={ncsu} />}
-          </div>
+        <div className="footer-links" style={{display: window.innerWidth < 900 ? 'none' : 'flex'}}>
+          <li><NavLink to="/about">About</NavLink></li>
         </div>
-        
+
       
        
 
@@ -38,7 +39,7 @@ const Footer = () => {
           <a href="https://www.facebook.com/" target="_blank" rel="noreferrer">
             <FontAwesomeIcon icon={faFacebook} size="2x" className="fa fa-facebook"/> 
           </a>
-          <a href="https://www.instagram.com/kagwave" target="_blank" rel="noreferrer">
+          <a href="https://www.instagram.com" target="_blank" rel="noreferrer">
           <FontAwesomeIcon icon={faInstagram} size="2x"  className="fa fa-instagram"/> 
           </a>
         </div>

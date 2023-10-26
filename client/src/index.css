@@ -41,7 +41,21 @@ a {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #171d1e;
+  background-color: #CC0000;
+}
+
+.not-found button {
+  border: none;
+  background: black;
+  color: white;
+  font-family: 'Univers';
+  padding: 15px 10px;
+  cursor: pointer;
+}
+
+.not-found button:hover {
+  background-color: #CC0000;
+  color: white;
 }
 
 

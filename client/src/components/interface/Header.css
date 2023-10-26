@@ -18,6 +18,7 @@
   height: 100%;
   border: 1px;
   padding-left: calc(10px + 1vw);
+  cursor: pointer;
 }
 .banner-text {
   display: flex;
@@ -120,7 +121,6 @@
   float: left;
   overflow: hidden;
   background-color: inherit;
-  margin-left: 100px;
 }
 
 .dropbtn {
@@ -149,7 +149,7 @@
 }
 
 .dropbtn.active {
-  color: #43CAEE;
+  color: #CC0000;
 }
 
 .dropdown-content-container {

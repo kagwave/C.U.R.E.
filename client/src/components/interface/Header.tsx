@@ -40,6 +40,8 @@ const Header = () => {
           
           {pathname !== "/" && <NavLink className="navlink" to="/"> Home </NavLink>}
 
+          <div id="seperator" style={{height: '100%', width: '2px', margin: '0 10px', background: 'rgb(200,200,200)'}}></div>
+
           {!isLoggedIn ?
             <NavLink className="navlink" to="/login">Login</NavLink>
           :
