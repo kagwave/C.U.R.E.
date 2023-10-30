@@ -13,7 +13,7 @@ const auth = {
     const response = await axiosClient.post("/auth/logout");
     if (response.status === 200) {
       store.dispatch(logout())
-      window.open(`${hostUrl}`, '_self');
+      window.open(`${hostUrl}/login`, '_self');
     }    
   }
 

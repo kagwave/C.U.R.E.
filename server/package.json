@@ -5,11 +5,7 @@
   "scripts": {
     "start": "NODE_OPTIONS='--max-old-space-size=8192' ts-node --transpile-only src/index",
     "server": "nodemon src/index",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix ../../client",
-    "postinstall": "npm rebuild node-sass",
-    "tsc": "tsc",
     "watch-node": "nodemon src/index.js",
-    "watch-ts": "tsc -w"
   },
   "engines": {
     "node": "v18.14.2",

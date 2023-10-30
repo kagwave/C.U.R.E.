@@ -20,6 +20,7 @@ import Footer from './components/interface/Footer';
 //Pages
 import Home from './components/pages/Home/Home';
 import Login from './components/pages/User/Login';
+import Account from './components/pages/User/Account';
 import PageNotFound from './components/pages/PageNotFound';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from './redux/store';
@@ -29,6 +30,7 @@ const routes = [
   { path: '/', element: <Home /> },
   { path: '/login', element: <Login /> },
   { path: '*', element: <PageNotFound /> },
+  { path: '/account', element: <Account />}
 ];
 
 function App() {
@@ -38,11 +40,9 @@ function App() {
 
   const element = useRoutes(routes);
 
-
   const { isLoggedIn, user } = useSelector((state: RootState) => state.auth);
 
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   useEffect(() => {
     AOS.init({
