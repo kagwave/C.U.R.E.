@@ -5,7 +5,7 @@
   "scripts": {
     "start": "NODE_OPTIONS='--max-old-space-size=8192' ts-node --transpile-only src/index",
     "server": "nodemon src/index",
-    "watch-node": "nodemon src/index.js",
+    "watch-node": "nodemon src/index.js"
   },
   "engines": {
     "node": "v18.14.2",
