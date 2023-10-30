@@ -2,7 +2,7 @@
   "scripts": {
     "dev": "concurrently \"npm run start --prefix client\" \"npm run start --prefix server\"",
     "deploy": "git add . && git commit -am update && git push origin main",
-    "install": "concurrently \"npm install --prefix server\" \"npm install --prefix client\" ",
+    "install": "npm install --prefix server && npm install --prefix client",
     "start": "NODE_OPTIONS='--max-old-space-size=8192' ts-node --transpile-only server/src/index",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client",
     "postinstall": "npm rebuild node-sass",
@@ -13,4 +13,5 @@
     "node": "v18.14.2",
     "npm": "9.6.1"
   }
+
 }
