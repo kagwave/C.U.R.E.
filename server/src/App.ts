@@ -13,8 +13,8 @@ import { hostUrl, serverUrl } from './utils/urls';
 import passport from 'passport';
 import '../config/passport';
 
-import { ServiceConfig, ServiceMetadata } from './types/services'
 import { mongooseConnect } from '../config/db';
+import { ServiceConfig, ServiceMetadata } from './types/services';
 
 const MemoryStore = Memory(session);
 

@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es2020",
+    "target": "esnext",
     "module": "commonjs",
     "esModuleInterop": true,
     "allowJs": true,
@@ -15,18 +15,15 @@
     "types": ["./src/types/*"]
   },
   "include": [
-    "src/**/*.ts",
-    "src/**/*.d.ts",
-    "src/types/*",
-    "src/types/*.d.ts",
-    "src/types/user.d.ts"
+    "./src/**/*.ts",
+    "./src/types/*.ts",
   ],
   "exclude": [
     "node_modules",
     "build/**/*"
   ],
   "typeRoots": [
-    "src/types/*",
+    "src/types",
     "node_modules/@types"
   ]
 }

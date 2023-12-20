@@ -26,7 +26,7 @@ passport.use('google', new GoogleStrategy.Strategy({
     }
 
     const userType = req.session.userType;
-    let user: any;
+    let user: User | null = null;
 
     try {
 
