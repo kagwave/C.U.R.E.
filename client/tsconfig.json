@@ -24,7 +24,7 @@
     "./src/**/*.ts", // Updated to include all TypeScript files under src
     "./src/**/*.d.ts",
     "./src/types/*",
-    "./src/types/index.d.ts",
+    "src/types/*.ts",
     "./src/types/user.d.ts"
   ],
   "exclude": [

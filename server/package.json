@@ -3,7 +3,7 @@
   "version": "3.0.0",
   "description": "cure-project-management-backend",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc --project tsconfig.json",
     "start": "NODE_OPTIONS='--max-old-space-size=8192' ts-node --transpile-only src/index",
     "server": "nodemon src/index",
     "watch-node": "nodemon src/index.js"

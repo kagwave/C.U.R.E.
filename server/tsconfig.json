@@ -10,7 +10,7 @@
     "sourceMap": true,
     "jsx": "preserve",
     "strict": true, // Enable strict typing
-    "outDir": "../../dist/server",
+    "outDir": "./dist",
     "resolveJsonModule": true,
     "types": ["./src/types/*"]
   },
@@ -19,8 +19,7 @@
     "./src/types/*.ts",
   ],
   "exclude": [
-    "node_modules",
-    "build/**/*"
+    "node_modules"
   ],
   "typeRoots": [
     "src/types",
