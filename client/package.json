@@ -25,9 +25,7 @@
     "react-router-dom": "^6.15.2",
     "react-scripts": "^5.0.1",
     "redux": "^5.0.0",
-    "use-state-promise": "^0.1.1",
-    "web-vitals": "^3.4.0",
-    "ws": "^8.13.0"
+    "web-vitals": "^3.4.0"
   },
   "scripts": {
     "start": "react-scripts start",
