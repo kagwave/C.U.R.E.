@@ -6,7 +6,7 @@
     "install": "npm install --prefix server && npm install --prefix client",
     "build:server": "cd server && npm run build",
     "build:client": "cd client && npm run build",
-    "start:server": "cd dist && NODE_OPTIONS='--max-old-space-size=8192' node index.js",
+    "start:server": "NODE_OPTIONS='--max-old-space-size=8192' node dist/index.js",
     "start:client": "cd client && npm start",
     "heroku-postbuild": "npm run build:server && cd client && npm install --only=prod && npm run build",
     "tsc": "tsc",
