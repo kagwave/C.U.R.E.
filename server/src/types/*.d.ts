@@ -1,3 +1,5 @@
+import 'express';
+
 declare module 'express-session';
 declare module 'uuid';
 declare module 'file-system';

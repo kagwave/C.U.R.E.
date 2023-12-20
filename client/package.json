@@ -8,21 +8,21 @@
     "@fortawesome/free-regular-svg-icons": "^6.4.2",
     "@fortawesome/free-solid-svg-icons": "^6.4.2",
     "@fortawesome/react-fontawesome": "^0.2.0",
-    "@reduxjs/toolkit": "^1.9.5",
+    "@reduxjs/toolkit": "^2.0.1",
     "@testing-library/jest-dom": "^6.1.3",
     "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^14.4.3",
     "aos": "^2.3.4",
     "axios": "^1.4.0",
-    "axios-retry": "^3.8.0",
+    "axios-retry": "^4.0.0",
     "dotenv": "^16.3.1",
     "node-sass": "^9.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-redux": "^8.1.2",
+    "react-redux": "^9.0.4",
     "react-router-dom": "^6.15.2",
     "react-scripts": "^5.0.1",
-    "redux": "^4.2.1",
+    "redux": "^5.0.0",
     "use-state-promise": "^0.1.1",
     "web-vitals": "^3.4.0",
     "ws": "^8.13.0"
@@ -63,6 +63,11 @@
     "@types/react-dom": "^18.2.7",
     "@types/react-fontawesome": "^1.6.5",
     "@types/react-router-dom": "^5.3.3",
-    "typescript": "^4"
+    "typescript": "^5.3.3"
+  },
+  "overrides": {
+    "react-scripts": {
+      "typescript": "^5"
+    }
   }
 }

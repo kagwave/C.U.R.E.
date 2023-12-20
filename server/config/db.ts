@@ -6,8 +6,7 @@ import { ConnectOptions } from 'mongoose';
 const mongooseConnect = (uri: string, options?: ConnectOptions) => {
   if (!options) {
     options = { 
-      keepAlive: true, 
-      keepAliveInitialDelay: 300000 
+      
     }
   }
   mongoose.set('strictQuery', false)

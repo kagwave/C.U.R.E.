@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "esnext",
+    "target": "es2020",
     "module": "commonjs",
     "esModuleInterop": true,
     "allowJs": true,
@@ -9,24 +9,24 @@
     "moduleResolution": "node",
     "sourceMap": true,
     "jsx": "preserve",
-    "strict": false,
-    "outDir": "../../dist/server", // Adjusted output directory
+    "strict": true, // Enable strict typing
+    "outDir": "../../dist/server",
     "resolveJsonModule": true,
     "types": ["./src/types/*"]
   },
   "include": [
-    "./src/**/*.ts", // Updated to include all TypeScript files under src
-    "./src/**/*.d.ts",
-    "./src/types/*",
-    "./src/types/*.d.ts",
-    "./src/types/user.d.ts"
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/types/*",
+    "src/types/*.d.ts",
+    "src/types/user.d.ts"
   ],
   "exclude": [
-    "./node_modules",
-    "./build/**/*"
+    "node_modules",
+    "build/**/*"
   ],
   "typeRoots": [
-    "./src/types/*",
+    "src/types/*",
     "node_modules/@types"
   ]
 }

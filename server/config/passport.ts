@@ -26,7 +26,7 @@ passport.use('google', new GoogleStrategy.Strategy({
     }
 
     const userType = req.session.userType;
-    let user: User;
+    let user: any;
 
     try {
 
@@ -88,7 +88,7 @@ passport.use('google', new GoogleStrategy.Strategy({
         return done(null, user);
       }
 
-    } catch (err) {
+    } catch (err: any) {
       return done(null, null, {message: err.message} );
     }
   })

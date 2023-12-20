@@ -48,7 +48,7 @@ class App {
       });
     }
 
-    this.createServer(config);
+    this.server = this.createServer(config);
   }
 
   private configureMiddlewares() {
@@ -110,7 +110,7 @@ class App {
     mongooseConnect(process.env.ATLAS_URI!);
   }
 
-  public createServer(options: ServiceConfig): void {
+  public createServer(options: ServiceConfig): http.Server | https.Server {
     const { ssl } = options;
 
     if (ssl && process.env.NODE_ENV !== "production" && process.env.DOCKER !== 'true') {
@@ -118,9 +118,9 @@ class App {
         key: fs.readFileSync(ssl.key),
         cert: fs.readFileSync(ssl.cert)
       }
-      this.server = https.createServer(httpsOptions, this.app);
+      return https.createServer(httpsOptions, this.app);
     } else {
-      this.server = http.createServer(this.app);
+      return http.createServer(this.app);
     }
   }
   
