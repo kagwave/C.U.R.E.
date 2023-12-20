@@ -1,31 +1,32 @@
-{ 
-  "compilerOptions":{
+{
+  "compilerOptions": {
     "target": "esnext",
     "module": "commonjs",
     "esModuleInterop": true,
     "allowJs": true,
     "skipLibCheck": true,
     "noImplicitAny": false,
-    "moduleResolution": "Node",
+    "moduleResolution": "node",
     "sourceMap": true,
     "jsx": "preserve",
     "strict": false,
-    "outDir": "../../dist",
+    "outDir": "../../dist/server", // Adjusted output directory
     "resolveJsonModule": true,
     "types": ["./src/types/*"]
   },
-  "include":[ 
+  "include": [
+    "./src/**/*.ts", // Updated to include all TypeScript files under src
+    "./src/**/*.d.ts",
     "./src/types/*",
     "./src/types/*.d.ts",
-    "./src/types/user.d.ts",
-    "./src/types/services.d.ts",
+    "./src/types/user.d.ts"
   ],
-  "exclude":[ 
+  "exclude": [
     "./node_modules",
     "./build/**/*"
   ],
   "typeRoots": [
     "./src/types/*",
     "node_modules/@types"
-  ],
+  ]
 }

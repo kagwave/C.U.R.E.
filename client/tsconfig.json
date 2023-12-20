@@ -17,15 +17,17 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true,
+    "noEmit": false, // Updated to emit JavaScript
     "jsx": "react-jsx"
   },
   "include": [
+    "./src/**/*.ts", // Updated to include all TypeScript files under src
+    "./src/**/*.d.ts",
     "./src/types/*",
     "./src/types/index.d.ts",
     "./src/types/user.d.ts"
   ],
-  "exclude":[ 
-    "../node_modules"
-  ],
+  "exclude": [
+    "./node_modules"
+  ]
 }
