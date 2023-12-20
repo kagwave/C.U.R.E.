@@ -1,0 +1,13 @@
+.home-pg-announcements {
+  width: 40%;
+  border: 1px solid black;
+}
+
+.home-pg h1 {
+  font-size: calc(15px + 0.3vw);
+}
+
+.home-pg-progress {
+  width: 40%;
+  border: 1px solid black;
+}

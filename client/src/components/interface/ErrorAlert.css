@@ -1,0 +1,23 @@
+.error-alert {
+  position: absolute;
+  z-index: 1000;
+  width: 30vw;
+  background: black;
+  height: 50px;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 300px;
+  margin: auto;
+}
+
+.error-alert h1 {
+  color: white;
+  font-family: 'RobotoLight';
+  font-size: calc(12px + 0.3vw);
+}
+
+@media screen and (max-width: 1000px) {
+  .error-alert {bottom: 8vh;}
+}

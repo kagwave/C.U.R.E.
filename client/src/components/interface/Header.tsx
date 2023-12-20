@@ -1,5 +1,5 @@
 import './Header.css';
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { useLocation, useNavigate } from 'react-router-dom';
 
@@ -17,7 +17,7 @@ const Header = () => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
 
-  const { isLoggedIn, user } = useSelector((state: RootState) => state.auth);
+  const { isLoggedIn, user, userType } = useSelector((state: RootState) => state.auth)
 
   return ( 
     <div id="header">
@@ -26,7 +26,7 @@ const Header = () => {
         <img src={logo} height={"70%"} alt="NCSU"/>
         <div className="banner-text">
           <h1>
-            CURE 
+            C.U.R.E. 
           </h1>
           <h2>
             Course-based Undergraduate Research Experience

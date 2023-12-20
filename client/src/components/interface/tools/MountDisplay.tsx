@@ -3,7 +3,7 @@ export default function MountDisplay(iconUrl: string | undefined | boolean, page
   let icon: any = document.querySelector("link[rel='icon']")!;
 
   if (!iconUrl) {
-    icon.href = '/favicon.ico';
+    icon.href = 'favicon.ico';
   } else {
     icon.href = iconUrl;   
   }

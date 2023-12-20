@@ -1,6 +1,6 @@
 import axios, { AxiosInstance } from "axios";
 //import axiosRetry from 'axios-retry';
-import errorHandler from './customErrors';
+//import errorHandler from './customErrors';
 import axiosRetry from 'axios-retry';
 
 

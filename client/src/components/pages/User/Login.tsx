@@ -10,6 +10,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBuildingColumns } from '@fortawesome/free-solid-svg-icons';
 
 import auth from '../../../utils/auth/auth';
+import UserIcon from '../../misc/UserIcon';
 
 const Login = () => {
 
@@ -27,6 +28,7 @@ const Login = () => {
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
 
   return (
     <div id="page-content" style={{background: 'red'}}>
@@ -48,17 +50,21 @@ const Login = () => {
             <div className='login-option' 
               onClick={() => {dispatch(setUserType('student')); auth.login()}}
             >
-              <i className="fa-light fa-graduation-cap"></i>
+              <UserIcon type="student"/>
               <h1>Student</h1>
             </div>
 
-            <div className='login-option'>
-              <i className="fa-light fa-user-tie-hair"></i>
+            <div className='login-option' 
+              onClick={() => {dispatch(setUserType('collborator')); auth.login()}}
+            >
+              <UserIcon type="collaborator"/>
               <h1>Collaborator</h1>
             </div>
 
-            <div className='login-option'>
-              <i className="fa-light fa-chalkboard-teacher"></i>
+            <div className='login-option' 
+              onClick={() => {dispatch(setUserType('instructor')); auth.login()}}
+            >
+              <UserIcon type="instructor"/>
               <h1>Instructor</h1>
             </div>
           </div>

@@ -1,4 +1,5 @@
 import './Form.css';
+import React from 'react';
 
 const GroupRating = (props: any) => {
 

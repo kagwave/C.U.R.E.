@@ -94,15 +94,8 @@ body {
 
 
 @media screen and (max-width: 900px) {
-  #page-content { margin-top: 7vh; min-height: 92vh }
-}
-
-@media screen and (min-width: 900px) {
-  #page-content { margin-top: 0; }
-}
-
-@media screen and (max-width: 500px){
-  #page-content{min-height: 92vh}
+  #page-content { min-height: 93vh }
+  #header-mobile {box-shadow: none;}
 }
 
 

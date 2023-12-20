@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 
 const studentSchema = new mongoose.Schema({
+  account_type: {type: String, required: true},
   email: {type: String, required: true},
   unity_id: {type: String, required: true},
   name: {type: Object, required: true},
@@ -10,7 +11,6 @@ const studentSchema = new mongoose.Schema({
   accessToken: {type: String},
   refreshToken: {type: String}
 });
-
 
 const Student = mongoose.model("Student", studentSchema);
 export default Student;

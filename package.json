@@ -9,7 +9,7 @@
     "watch-ts": "tsc -w"
   },
   "engines": {
-    "node": "v18.14.2",
-    "npm": "9.6.1"
+    "node": "v21.5.0",
+    "npm": "10.2.5"
   }
 }

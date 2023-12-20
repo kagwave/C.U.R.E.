@@ -1,17 +1,26 @@
 import './Home.css';
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../../redux/store';
 
-import Form from '../Checkpoints/Form';
+import StudentHome from './Student/Home';
+import CollaboratorHome from './Collaborator/Home';
+import InstructorHome from './Instructor/Home';
 
-const Landing = () => {
+const Home = () => {
+
+  const { userType } = useSelector((state: RootState) => state.auth);
+
   return (
-    <div id="page-content">
-      
-    </div>
+    <>
+      {userType === 'student' && <StudentHome/>}
+      {userType === 'collaborator' && <CollaboratorHome/>}
+      {userType === 'instructor' && <InstructorHome/>}
+    </>
   ); 
 }
 
-export default Landing;
+export default Home;
 
 
 

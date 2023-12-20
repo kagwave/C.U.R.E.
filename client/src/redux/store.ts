@@ -1,7 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
+import generalReducer from './slices/general';
 import authReducer from './slices/auth';
 
 const reducer = {
+  general: generalReducer,
   auth: authReducer,
 }
 

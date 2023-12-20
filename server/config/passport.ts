@@ -8,7 +8,7 @@ import Collaborator from '../src/models/collaborator';
 import { serverUrl } from '../src/utils/urls';
 import GoogleStrategy from 'passport-google-oauth20';
 
-import { extractUnityId } from '../src/utils/onboarding/extractUnityId';
+import { extractUnityId, extractGoogleId } from '../src/utils/onboarding/extractId';
 
 //Google  
 passport.use('google', new GoogleStrategy.Strategy({
@@ -25,38 +25,71 @@ passport.use('google', new GoogleStrategy.Strategy({
       return done(null, null);
     }
 
-    const userType = req.query.userType;
-    console.log(userType);
-    let user;
+    const userType = req.session.userType;
+    let user: User;
 
-    if (userType == 'student') {
-      user = await Student.findOne({"email": email });
-    } else if (userType == 'collaborator') {
-      user = await Collaborator.findOne({"email": email });
-    } else if (userType == 'instrcutor') {
-      user = await Instructor.findOne({"email": email });
-    }
+    try {
 
-    //Look for Google Account
-    if (!user){
-      let display_name = first_name + " " + last_name;
-      const newStudent = {
-        email: email,
-        unity_id: extractUnityId(email),
-        display_name: display_name,
-        name: {
-          first_name: first_name,
-          last_name: last_name,
-        },
-        profile_photo: profile_photo,
-        accessToken: accessToken,
-        refreshToken: refreshToken
+      //Look if account previously exists
+      if (userType === 'student') {
+        user = await Student.findOne({"email": email });
+      } else if (userType === 'collaborator') {
+        user = await Collaborator.findOne({"email": email });
+      } else if (userType === 'instructor') {
+        let id = extractUnityId(email);
+        // Check for instructor, return error if not an instructor account
+        if (id == "kamuchan" || id == "garabah") {
+          user = await Instructor.findOne({"email": email });
+        } else {
+          return done(null, null, {message: "This is not an instructor account."} );
+        }
       }
-      new Student(newStudent).save();
-      return done(null, newStudent);
-    //If account does exist, update its information and log it in.
-    } else {
-      return done(null, user);
+
+      //Create user if it doesn't exist
+      if (!user) {
+        let display_name = first_name + " " + last_name;
+        const newUser = {
+          account_type: userType,
+          email: email,
+          display_name: display_name,
+          name: {
+            first_name: first_name,
+            last_name: last_name,
+          },
+          profile_photo: profile_photo,
+          accessToken: accessToken,
+          refreshToken: refreshToken
+        }
+
+        //set id
+        if (userType === 'student' || userType === 'instructor') {
+          newUser["unity_id"] = extractUnityId(email);
+        } else {
+          newUser["collaborator_id"] = extractGoogleId(email);
+        }
+
+        switch (userType) {
+          case 'student':
+            new Student(newUser).save();
+            break;
+          case "collaborator":
+            new Collaborator(newUser).save();
+            break;
+          case "instructor": 
+            new Instructor(newUser).save();
+            break;
+          default:
+            break;
+        }
+        return done(null, newUser);
+
+      } else {
+        //If account does exist, update its information and log it in.
+        return done(null, user);
+      }
+
+    } catch (err) {
+      return done(null, null, {message: err.message} );
     }
   })
 );

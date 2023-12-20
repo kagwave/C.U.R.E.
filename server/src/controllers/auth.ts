@@ -14,6 +14,9 @@ const authenticationController = {
   getUser (req: express.Request, res: express.Response) {
     if (req.user) {
       let currentUser: any = req.user;
+      delete currentUser.accessToken;
+      delete currentUser.refreshToken;
+      delete currentUser["_id"];
       res.json(currentUser);
     } else {
       res.json({});
@@ -22,8 +25,12 @@ const authenticationController = {
 
   logout (req: express.Request, res: express.Response, next: express.NextFunction) {
     req.logOut(function(err) {
-      if (err) {console.log(err);return res.status(404).send("Error logging out.")}
-      else {res.status(200).send("Ok")}
+      if (err) {
+        console.log(err);
+        return res.status(404).send("Error logging out.")
+      } else {
+        res.status(200).send("OK");
+      }
     });
 
   },
@@ -31,6 +38,8 @@ const authenticationController = {
   google: {
 
     auth: (req: express.Request, res: express.Response, next: express.NextFunction) => {
+      // set user type
+      req.session.userType = req.query.userType;
       passport.authenticate('google', { 
         scope : ['email', 'profile'], ...googleParams
       })(req, res, next);
@@ -40,7 +49,8 @@ const authenticationController = {
       passport.authenticate('google', (err, user, info) => {
         if (err) { return next(err); }
         if (!user) { 
-          return res.redirect(`${hostUrl}/login`);
+          //res.cookie('errorMessage', info.message, { httpOnly: true });
+          return res.redirect(`${hostUrl}/login/`);
         } else {
           req.logIn(user, function(err) {
             if (err) { 
@@ -50,7 +60,7 @@ const authenticationController = {
             }
           });
         }
-      })(req, res, next)
+      })(req, res, next);
     }
 
   }

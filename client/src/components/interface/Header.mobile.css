@@ -2,8 +2,8 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-  position: fixed;
-  z-index: 5;
+  position: relative;
+  z-index: 11;
   align-items: center;
   top: 0;
   left: 0;
@@ -11,13 +11,14 @@
   background-color: whitesmoke;
   height: 7vh;
   opacity: 1;
+  box-shadow: 1px 1px 20px rgb(189, 188, 188);
 }
 
 .logo-mobile { 
   border: none;
   display: flex;
-  width: 3vh; 
-  height: 3vh;
+  height: 100%;
+  align-items: center;
   border-radius: 50%;
   position: absolute;
   left: 15px;
@@ -31,31 +32,19 @@
 .nav-dropbtn-mobile {
   position: absolute;
   display: block;
-  width: 3.5vh; 
-  height: 3.5vh;
-  background-repeat: no-repeat;
-  background-size: 3.5vh 3.5vh;
   right: 15px;
   outline: none !important;
   box-shadow: none !important;
   border: none;
   background-color: transparent;
+  cursor: pointer;
 }
-
-.menu-closed {
-  background-image: url('../../media/images/dropdownthin2.png');
-}
-
-.menu-open {
-  background-image: url('../../media/images/closethin.png');
-}
-
 
 
 #nav-menu-mobile {
   position: fixed;
   z-index: 3;
-  background: rgb(69, 69, 69);;
+  background: gray;
   height: 93vh;
   right: 0px;
   min-width: 200px;
@@ -74,17 +63,17 @@
 }
 
 .navlink-mobile {
-  color: white;
+  color: whitesmoke;
   display: flex;
   background-color: inherit; 
   outline: none;
   position: relative;
   text-align: center;
   margin: auto;
-  padding: 4px;
+  padding: 10px 4px;
   text-decoration: none;
-  font-family: 'Abrade';
-  font-size: calc(16px + 0.5vw); 
+  font-family: 'Univers';
+  font-size: calc(14px + 0.3vw); 
 }
 
 .navlink-mobile:hover {
@@ -203,13 +192,13 @@ input[type=search] {
 }
 
 @-webkit-keyframes slideinmenu {
-  from { right:-200px; opacity:0; background-color:  rgb(69, 69, 69) } 
-  to { right:0; opacity:1; background-color: rgb(13, 13, 13)}
+  from{ right:-200px; opacity:0; background-color: whitesmoke }
+  to{ right:0; opacity:1; background-color: rgb(200, 200, 200)} 
 }
 
 @keyframes slideinmenu { 
-  from{ right:-200px; opacity:0; background-color:  rgb(69, 69, 69) } 
-  to{ right: 0; opacity:1; background-color: rgb(13, 13, 13) }
+  from{ right:-200px; opacity:0; background-color: whitesmoke }
+  to{ right:0; opacity:1; background-color: rgb(200, 200, 200)} 
 }
 
 .slide-out-menu {
@@ -222,13 +211,13 @@ input[type=search] {
 }
 
 @-webkit-keyframes slideoutmenu {
-  from { right:0px; opacity:1; background-color: rgb(13, 13, 13) } 
-  to { right:-200px; opacity:0; background-color: rgb(69, 69, 69); }
+  from{ right:0; opacity:1; background-color: rgb(200, 200, 200)} 
+  to{ right:-200px; opacity:0; background-color: whitesmoke }
 }
 
 @keyframes slideoutmenu { 
-  from{ right:0; opacity:1; background-color: rgb(13, 13, 13)} 
-  to{ right:-200px; opacity:0; background-color: rgb(69, 69, 69) }
+  from{ right:0; opacity:1; background-color: rgb(200, 200, 200)} 
+  to{ right:-200px; opacity:0; background-color: whitesmoke }
 }
 
 .active-header {
@@ -240,13 +229,13 @@ input[type=search] {
 }
 
 @-webkit-keyframes activecolor {
-  from { background-color: rgb(69, 69, 69) } 
-  to { background-color: rgb(13, 13, 13) }
+  from { background-color: whitesmoke; } 
+  to { background-color: rgb(200, 200, 200) }
 }
 
 @keyframes activecolor { 
-  from { background-color: rgb(69, 69, 69) } 
-  to { background-color: rgb(13, 13, 13) }
+  from { background-color: whitesmoke; } 
+  to { background-color: rgb(200, 200, 200) }
 }
 
 .nonactive-header {
@@ -258,11 +247,11 @@ input[type=search] {
 }
 
 @-webkit-keyframes nonactivecolor {
-  from { background-color: rgb(13, 13, 13) } 
-  to { background-color: rgb(69, 69, 69) }
+  from { background-color: rgb(200, 200, 200) } 
+  to { background-color: whitesmoke; }
 }
 
 @keyframes nonactivecolor { 
-  from { background-color: rgb(13, 13, 13) } 
-  to { background-color: rgb(69, 69, 69) }
+  from { background-color: rgb(200, 200, 200) } 
+  to { background-color: whitesmoke; }
 }
