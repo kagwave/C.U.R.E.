@@ -1,4 +1,4 @@
-import 'express';
+import express, { Router } from "express";
 
 declare module 'express-session';
 declare module 'uuid';
@@ -19,3 +19,4 @@ declare module 'express' {
     session: any
   }
 }
+
