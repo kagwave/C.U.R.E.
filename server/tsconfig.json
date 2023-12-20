@@ -15,10 +15,10 @@
     "types": ["./src/types/*"]
   },
   "include":[ 
-    "/src/types/*",
-    "/src/types/*.d.ts",
-    "/src/types/user.d.ts",
-    "/src/types/services.d.ts",
+    "./src/types/*",
+    "./src/types/*.d.ts",
+    "./src/types/user.d.ts",
+    "./src/types/services.d.ts",
   ],
   "exclude":[ 
     "./node_modules",
