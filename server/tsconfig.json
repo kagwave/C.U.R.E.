@@ -10,7 +10,7 @@
     "sourceMap": true,
     "jsx": "preserve",
     "strict": true, // Enable strict typing
-    "outDir": "./dist",
+    "outDir": "../dist",
     "resolveJsonModule": true,
     "types": ["./src/types/*"]
   },
