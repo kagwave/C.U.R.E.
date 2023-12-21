@@ -1,5 +1,6 @@
 import { axiosClient } from "../axios/axiosClient";
 import { serverUrl, hostUrl } from "../urls";
+
 import { store } from "../../redux/store";
 import { login, logout } from "../../redux/slices/auth";
 import { setErrorAlert } from "../../redux/slices/general";
@@ -18,7 +19,7 @@ const auth = {
       }
       return;
     } catch (err) {
-      store.dispatch(setErrorAlert('The was an error fetching the user.'));
+      store.dispatch(setErrorAlert('There was an error fetching the user.'));
     }
   },
 
