@@ -44,7 +44,7 @@ class App {
       this.app.use(express.static(staticPath ? staticPath : "../client/build"));
     
       this.app.get("*", (req: Request, res: Response) => {
-        res.sendFile(path.resolve(__dirname, "../../client", "build", "index.html"));
+        res.sendFile(path.resolve(__dirname, "../../../client", "build", "index.html"));
       });
     }
 
