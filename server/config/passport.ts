@@ -29,8 +29,7 @@ passport.use('google', new GoogleStrategy.Strategy({
     let user: User | null = null;
 
     try {
-
-      //Look if account previously exists
+      // Look if account previously exists
       if (userType === 'student') {
         user = await Student.findOne({"email": email });
       } else if (userType === 'collaborator') {
@@ -45,7 +44,7 @@ passport.use('google', new GoogleStrategy.Strategy({
         }
       }
 
-      //Create user if it doesn't exist
+      // Create user if it doesn't exist
       if (!user) {
         let display_name = first_name + " " + last_name;
         const newUser = {
@@ -61,13 +60,14 @@ passport.use('google', new GoogleStrategy.Strategy({
           refreshToken: refreshToken
         }
 
-        //set id
+        // set id
         if (userType === 'student' || userType === 'instructor') {
           newUser["unity_id"] = extractUnityId(email);
         } else {
           newUser["collaborator_id"] = extractGoogleId(email);
         }
 
+        // initialize new user and return
         switch (userType) {
           case 'student':
             new Student(newUser).save();
@@ -84,7 +84,7 @@ passport.use('google', new GoogleStrategy.Strategy({
         return done(null, newUser);
 
       } else {
-        //If account does exist, update its information and log it in.
+        // If account does exist, update its information and log it in.
         return done(null, user);
       }
 

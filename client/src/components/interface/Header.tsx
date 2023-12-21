@@ -1,5 +1,5 @@
 import './Header.css';
-import React, { useEffect } from 'react';
+import React from 'react';
 
 import { useLocation, useNavigate } from 'react-router-dom';
 
@@ -17,7 +17,7 @@ const Header = () => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
 
-  const { isLoggedIn, user, userType } = useSelector((state: RootState) => state.auth)
+  const { isLoggedIn, user } = useSelector((state: RootState) => state.auth)
 
   return ( 
     <div id="header">

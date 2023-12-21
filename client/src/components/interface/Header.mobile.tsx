@@ -32,6 +32,7 @@ const HeaderMobile = () => {
     return () => {
       closeMenu();
     }
+    //
   }, [document.body]);
 
   const openMenu = () => {
