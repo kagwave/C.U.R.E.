@@ -14,7 +14,7 @@
   background:white;
   height: fit-content;
   width: 50%;
-  min-width: 400px;
+  max-width: 80vw;
   height: 50vh;
   margin: auto;
   z-index: 100;
@@ -150,5 +150,9 @@
 
 @media screen and (max-width: 1300px) {
   .login-options {flex-direction: column; align-items: center; justify-content: space-evenly;}
-  .login-option {width: 50%;}
+  .login-option {width: 50%; margin: 5px 20px;}
+}
+
+@media screen and (max-width: 500px) {
+  #login-modal {width: auto}
 }

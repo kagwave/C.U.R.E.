@@ -10,7 +10,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 
 import logo from '../../media/images/ncsu.png';
-import auth from '../../utils/auth/auth';
 
 const Header = () => {
   
@@ -55,8 +54,14 @@ const Header = () => {
               <div className="dropdown-content-container" style={{marginTop: 5}}>
                 <div className="menu-gap-fill"></div>
                 <div className="dropdown-content fade-in-quick" >
-                  <NavLink className="navlink" to="/account"> Account </NavLink>
-                  <div className="navlink" onClick={auth.logout}> Logout </div >
+                  <NavLink className="navlink" to="/account"> 
+                    <i className="fa-sharp fa-light fa-file-user" style={{marginRight: '5px'}}></i>
+                    Account
+                  </NavLink>
+                  <NavLink className="navlink" to="/logout"> 
+                    <i className="fa-sharp fa-light fa-arrow-right-from-bracket" style={{marginRight: '5px'}}></i>
+                    Logout
+                  </NavLink >
                 </div>
               </div>
             </div>

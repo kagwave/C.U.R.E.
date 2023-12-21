@@ -292,7 +292,7 @@ hr {
 
 
 .freespace {
-  width: 4px;
+  width: calc(1px + 0.3vw);
 }
 .hide-element{
   display: none;

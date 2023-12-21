@@ -21,7 +21,7 @@
   align-items: center;
   border-radius: 50%;
   position: absolute;
-  left: 15px;
+  left: 10px;
   z-index: 3;
 }
 
@@ -32,7 +32,7 @@
 .nav-dropbtn-mobile {
   position: absolute;
   display: block;
-  right: 15px;
+  right: 10px;
   outline: none !important;
   box-shadow: none !important;
   border: none;
@@ -63,7 +63,7 @@
 }
 
 .navlink-mobile {
-  color: whitesmoke;
+  color: black;
   display: flex;
   background-color: inherit; 
   outline: none;

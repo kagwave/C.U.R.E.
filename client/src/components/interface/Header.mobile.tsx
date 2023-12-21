@@ -21,58 +21,77 @@ const HeaderMobile = () => {
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  var navmenu = document.getElementById("nav-menu-mobile");
-  var navbtn = document.querySelector(".nav-dropbtn-mobile");
-  var header = document.querySelector(".header-bar-mobile");
-  var footer = document.getElementById("footer-container");
-
   useEffect(() => {
     MountDisplay(undefined, undefined);
 
     return () => {
       closeMenu();
     }
-    //
-  }, [document.body]);
+  }, []);
 
   const openMenu = () => {
     let body = document.getElementById("page-content"); 
-    if (navbtn && header && navmenu && body && footer) {
+    let navmenu = document.getElementById("nav-menu-mobile");
+    let navbtn = document.querySelector(".nav-dropbtn-mobile");
+    let header = document.querySelector(".header-bar-mobile");
+    let footer = document.getElementById("footer-container");
+    if (navbtn) {
       navbtn!.classList.remove('menu-closed');
       navbtn!.classList.add('menu-open');
+    }
+    if (header) {
       header!.classList.remove('nonactive-header');
       header!.classList.add('active-header');
+    }
+    if (navmenu) {
       navmenu!.classList.remove("slide-out-menu");
       navmenu!.classList.add("slide-in-menu");
       navmenu!.classList.remove('hide-element');
       navmenu!.classList.add('show-blockelement');
-      body!.classList.add("blur-effect");
-      footer!.classList.add("blur-effect");
-      body!.style.pointerEvents = "none";
-      document.body.style.overflow = "hidden";
-      setIsMenuOpen(true);
     }
+    if (body) {
+      body!.classList.add("blur-effect");
+      body!.style.pointerEvents = "none";
+    }
+    if (footer) {
+      footer!.classList.add("blur-effect");
+    }
+    document.body.style.overflow = "hidden";
+    setIsMenuOpen(true);
+    return;
   }
 
-  const closeMenu = () => {
-    let body = document.getElementById("page-content");
-    if (navbtn && header && navmenu && footer && body) {
+  const closeMenu = async () => {
+    let body = document.getElementById("page-content"); 
+    let navmenu = document.getElementById("nav-menu-mobile");
+    let navbtn = document.querySelector(".nav-dropbtn-mobile");
+    let header = document.querySelector(".header-bar-mobile");
+    let footer = document.getElementById("footer-container");
+
+    if (navbtn) {
       navbtn!.classList.remove('menu-open');
       navbtn!.classList.add('menu-closed');
+    }
+    if (header) {
       header!.classList.remove('active-header');
       header!.classList.add('nonactive-header');
+    }
+    if (navmenu) {
       navmenu!.classList.remove("slide-in-menu");
       navmenu!.classList.add("slide-out-menu");
-      setTimeout(function(){
-        navmenu!.classList.remove('show-blockelement');
-        navmenu!.classList.add("hide-element");
-      }, 200); 
-      body!.classList.remove("blur-effect");
-      footer!.classList.remove("blur-effect");
-      body!.style.pointerEvents = "auto";
-      document.body.style.overflow = "auto";
-      setIsMenuOpen(false);
+      navmenu!.classList.remove('show-blockelement');
+      navmenu!.classList.add("hide-element");
     }
+    if (body) {
+      body!.classList.remove("blur-effect");
+      body!.style.pointerEvents = "auto";
+    }
+    if (footer) {
+      footer!.classList.remove("blur-effect");
+    }
+    document.body.style.overflow = "auto";
+    setIsMenuOpen(false);
+    return;
   }
 
   const showNavigation = () => {

@@ -6,7 +6,7 @@ import './media/loaders/basic.css';
 
 //React Hooks
 import React, { useEffect, useState } from 'react';
-import { Route, Routes, useRoutes } from 'react-router-dom';
+import { useRoutes } from 'react-router-dom';
 
 //UI
 import Header from './components/interface/Header';
@@ -24,11 +24,13 @@ import ErrorAlert from './components/interface/ErrorAlert';
 import auth from './utils/auth/auth';
 import { useSelector } from 'react-redux';
 import { RootState } from './redux/store';
+import Logout from './components/pages/User/Logout';
 
 
 const routes = [
   { path: '/*', element: <Home />},
   { path: '/login', element: <Login />},
+  { path: '/logout', element: <Logout />},
   { path: '/account', element: <Account />},
   { path: '/404', element: <PageNotFound />}
 ];
