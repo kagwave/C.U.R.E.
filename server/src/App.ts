@@ -40,18 +40,6 @@ class App {
     this.connectDB();
 
     //Build
-    /*if (process.env.NODE_ENV === 'production') {
-      this.app.use(express.static(staticPath ? path.join(__dirname, staticPath) : path.join(__dirname, "../../client/build")));
-      this.app.use("/static", express.static(path.join(__dirname, "../../client/build"), {
-        extensions: ["js"],
-        setHeaders: (res, path, stat) => {
-          res.set("Content-Type", "application/javascript");
-        }
-      }));
-      this.app.get("*", (req: Request, res: Response) => {
-        res.sendFile(path.resolve(__dirname, "../../../client", "build", "index.html"));
-      });
-    }*/
     if (process.env.NODE_ENV === 'production') {
       this.app.use(express.static(staticPath ? staticPath : "client/build"));
     
@@ -75,6 +63,7 @@ class App {
       res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
       res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
       res.setHeader('Access-Control-Allow-Credentials', 'true');
+      res.setHeader('Content-Security-Policy', "default-src 'self'; img-src 'self' https://lh3.googleusercontent.com data:;");
       next();
     });
     this.app.use(helmet());
