@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/static/css/main.c0902826.css",
+    "main.js": "/static/js/main.8e96e3ec.js",
+    "static/media/Abrade-SemiLight.ttf": "/static/media/Abrade-SemiLight.888539824d86434c0342.ttf",
+    "static/media/Questrial.ttf": "/static/media/Questrial.aa1669823cf6c4ef80c9.ttf",
+    "static/media/ncsu.png": "/static/media/ncsu.a4034334cc5ea9c4d7e5.png",
+    "static/media/Abrade-SemiLight.woff": "/static/media/Abrade-SemiLight.22dd745e919e27940b83.woff",
+    "static/media/UniversLTStd.otf": "/static/media/UniversLTStd.5e1f132656185ec403eb.otf",
+    "index.html": "/index.html",
+    "main.c0902826.css.map": "/static/css/main.c0902826.css.map",
+    "main.8e96e3ec.js.map": "/static/js/main.8e96e3ec.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c0902826.css",
+    "static/js/main.8e96e3ec.js"
+  ]
+}
