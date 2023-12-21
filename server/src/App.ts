@@ -40,11 +40,23 @@ class App {
     this.connectDB();
 
     //Build
-    if (process.env.NODE_ENV === 'production') {
-      this.app.use(express.static(staticPath ? staticPath : "../../client/build"));
-    
+    /*if (process.env.NODE_ENV === 'production') {
+      this.app.use(express.static(staticPath ? path.join(__dirname, staticPath) : path.join(__dirname, "../../client/build")));
+      this.app.use("/static", express.static(path.join(__dirname, "../../client/build"), {
+        extensions: ["js"],
+        setHeaders: (res, path, stat) => {
+          res.set("Content-Type", "application/javascript");
+        }
+      }));
       this.app.get("*", (req: Request, res: Response) => {
         res.sendFile(path.resolve(__dirname, "../../../client", "build", "index.html"));
+      });
+    }*/
+    if (process.env.NODE_ENV === 'production') {
+      this.app.use(express.static(staticPath ? staticPath : "client/build"));
+
+      this.app.get("*", (req: Request, res: Response) => {
+        res.sendFile(path.resolve(__dirname, "../client", "build", "index.html"));
       });
     }
 
