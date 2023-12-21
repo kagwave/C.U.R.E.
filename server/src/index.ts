@@ -1,7 +1,9 @@
-import dotenv from 'dotenv';
-dotenv.config();
+require('dotenv').config();
+//const envPath = path.resolve(__dirname, '..', '.env');
+//dotenv.config({ path: envPath });
 
 import { ServiceConfig, ServiceMetadata } from "./types/services";
+
 import App from "./App";
 import router from './routes/*';
 
