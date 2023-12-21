@@ -2,13 +2,13 @@ import axios, { AxiosInstance } from "axios";
 //import axiosRetry from 'axios-retry';
 //import errorHandler from './customErrors';
 import axiosRetry from 'axios-retry';
+import { serverUrl } from "../urls";
 
 
 const createAxiosInstance = (): AxiosInstance => {
-  let url = 'http://localhost:8080';
 
   const instance = axios.create({
-    baseURL: url,
+    baseURL: serverUrl,
     headers: {
       'Content-Type': 'application/json',
       Accept: 'application/json',

@@ -44,7 +44,7 @@ class App {
       this.app.use(express.static(staticPath ? staticPath : "client/build"));
 
       this.app.get("*", (req: Request, res: Response) => {
-        res.sendFile(path.resolve(__dirname, "../client", "build", "index.html"));
+        res.sendFile(path.resolve(__dirname, "../../client", "build", "index.html"));
       });
     }
 
@@ -112,7 +112,6 @@ class App {
 
   public createServer(options: ServiceConfig): http.Server | https.Server {
     const { ssl } = options;
-
     if (ssl && process.env.NODE_ENV !== "production" && process.env.DOCKER !== 'true') {
       const httpsOptions = {
         key: fs.readFileSync(ssl.key),
