@@ -115,13 +115,11 @@ const HeaderMobile = () => {
         </div>
       </div>
 
-      <button className="nav-dropbtn-mobile menu-closed"
-        onClick={showNavigation}
-      >
+      <button className="nav-dropbtn-mobile menu-closed">
         {!isLoggedIn ?
           <NavLink className="navlink" to="/login">Login</NavLink>
         :
-          <div className="dropbtn">
+          <div className="dropbtn" onClick={showNavigation}>
             <div id="seperator" style={{height: '100%', width: '2px', margin: '0 10px', background: 'rgb(200,200,200)'}}></div>
             <img src={user.profile_photo} id="profile_icon" alt={user.display_name}/>
             <span className="freespace"></span>
