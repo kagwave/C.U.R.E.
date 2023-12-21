@@ -3,7 +3,7 @@ import React from 'react';
 
 const CollaboratorHome = () => {
   return (
-    <div id="page-content" style={{justifyContent: 'flex-start'}}>
+    <div id="page-content" style={{justifyContent: 'flex-start'}} className='ease-in-quick'>
       <div className='home-pg'>
         <div className='home-navbar'>
           <div className='home-navlink'> Announcements </div>

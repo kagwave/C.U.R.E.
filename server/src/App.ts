@@ -63,10 +63,16 @@ class App {
       res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
       res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
       res.setHeader('Access-Control-Allow-Credentials', 'true');
-      res.setHeader('Content-Security-Policy', "default-src 'self'; img-src 'self' https://lh3.googleusercontent.com data:;");
       next();
     });
-    this.app.use(helmet());
+    this.app.use(
+      helmet.contentSecurityPolicy({
+        useDefaults: true,
+        directives: {
+          "img-src": ["'self'", "https:", "data:"]
+        }
+      })
+    );
     const corsOptions = {
       methods: ['GET', 'POST', 'PUT'],
       origin: hostUrl, // Set default origin if needed

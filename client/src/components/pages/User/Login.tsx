@@ -31,7 +31,7 @@ const Login = () => {
 
 
   return (
-    <div id="page-content" style={{background: 'red'}}>
+    <div id="page-content" style={{background: 'red'}} className='ease-in-quick'>
 
       <ModalOverlay opacity={0}/>
 

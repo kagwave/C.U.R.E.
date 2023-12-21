@@ -3,7 +3,7 @@ import React from 'react';
 
 const StudentHome = () => {
   return (
-    <div id="page-content" style={{justifyContent: 'flex-start'}}>
+    <div id="page-content" style={{justifyContent: 'flex-start'}} className='ease-in-quick'>
 
       <div className='home-pg'>
 
