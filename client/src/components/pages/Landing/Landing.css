@@ -26,6 +26,8 @@
   cursor: pointer;
   transition: ease-in-out 0.2;
   border-radius: 5px;
+  text-decoration: none;
+  color: black
 }
 
 .home-navlink:hover {

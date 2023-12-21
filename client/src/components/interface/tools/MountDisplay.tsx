@@ -1,4 +1,4 @@
-export default function MountDisplay(iconUrl: string | undefined | boolean, pageTitle: string | undefined, location?: string) {
+export default function MountDisplay(iconUrl: string | undefined, pageTitle: string | undefined, location?: string) {
 
   let icon: any = document.querySelector("link[rel='icon']")!;
 

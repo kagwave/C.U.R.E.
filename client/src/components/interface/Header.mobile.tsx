@@ -27,7 +27,7 @@ const HeaderMobile = () => {
   var footer = document.getElementById("footer-container");
 
   useEffect(() => {
-    MountDisplay(true, undefined);
+    MountDisplay(undefined, undefined);
 
     return () => {
       closeMenu();

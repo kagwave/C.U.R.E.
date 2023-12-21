@@ -6,7 +6,7 @@ import './media/loaders/basic.css';
 
 //React Hooks
 import React, { useEffect, useState } from 'react';
-import { useRoutes } from 'react-router-dom';
+import { Route, Routes, useRoutes } from 'react-router-dom';
 
 //UI
 import Header from './components/interface/Header';
@@ -14,21 +14,23 @@ import HeaderMobile from './components/interface/Header.mobile';
 import Footer from './components/interface/Footer';
 
 //Pages
-import Home from './components/pages/Home/Home';
+import Home from './components/pages/Landing/Landing';
 import Login from './components/pages/User/Login';
 import Account from './components/pages/User/Account';
 import PageNotFound from './components/pages/PageNotFound';
+
 import ErrorAlert from './components/interface/ErrorAlert';
+
 import auth from './utils/auth/auth';
 import { useSelector } from 'react-redux';
 import { RootState } from './redux/store';
 
 
 const routes = [
-  { path: '/', element: <Home /> },
-  { path: '/login', element: <Login /> },
-  { path: '*', element: <PageNotFound /> },
-  { path: '/account', element: <Account />}
+  { path: '/*', element: <Home />},
+  { path: '/login', element: <Login />},
+  { path: '/account', element: <Account />},
+  { path: '/404', element: <PageNotFound />}
 ];
 
 function App() {
@@ -70,7 +72,7 @@ function App() {
       }
 
       {elements}
-      
+
       <Footer />
 
     </div>

@@ -1,15 +1,24 @@
 import { useSelector } from 'react-redux';
 import './Account.css'
-import React from 'react';
+import React, { useEffect } from 'react';
 import { RootState } from '../../../redux/store';
 
 import { capitalize } from '../../../tools/capitalize';
 
 import UserIcon from '../../misc/UserIcon';
+import { useNavigate } from 'react-router-dom';
 
 const Account = () => {
 
-  const { user } = useSelector((state: RootState) => state.auth);
+  const { user, isLoggedIn } = useSelector((state: RootState) => state.auth);
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!isLoggedIn) {
+      navigate('/login');
+    }
+  }, []);
 
   return (
 
