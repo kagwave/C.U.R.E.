@@ -28,11 +28,18 @@ const auth = {
   },
 
   logout: async () => {
-    const response = await axiosClient.post('/auth/logout');
-    if (response.status === 200) {
-      store.dispatch(logout());
-      window.open(`${hostUrl}/login`, '_self');
-    }    
+    try {
+      const response = await axiosClient.post('/auth/logout');
+      if (response.status === 200) {
+        store.dispatch(logout());
+        window.open(`${hostUrl}/login`, '_self');
+      } else {
+        store.dispatch(setErrorAlert('There was an error logging you out.'));
+      }   
+    } catch (err) {
+      store.dispatch(setErrorAlert('There was an error logging you out.'));
+    }
+
   }
 
 }
