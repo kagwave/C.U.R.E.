@@ -21,7 +21,7 @@ const MemoryStore = Memory(session);
 class App {
 
   private app: Application;
-  private port: number;
+  private port: number | string;
   private router: Router;
   private server: http.Server | https.Server;
   public metadata: ServiceMetadata;
@@ -31,7 +31,7 @@ class App {
     const { port, router, staticPath } = config;
 
     this.app = express();
-    this.port = port;
+    this.port = process.env.PORT || port;
     this.router = router;
     this.metadata = metadata;
 

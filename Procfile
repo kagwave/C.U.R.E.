@@ -1,1 +1,1 @@
-web: npm run start:server && npm run start:client
+web: npm run start:server && npm run start:client -t 30000
