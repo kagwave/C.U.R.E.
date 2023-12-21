@@ -54,11 +54,9 @@ class App {
     }*/
     if (process.env.NODE_ENV === 'production') {
       this.app.use(express.static(staticPath ? staticPath : "client/build"));
-      /*this.app.get("*", (req: Request, res: Response) => {
-        res.sendFile(path.resolve(__dirname, "../client", "build", "index.html"));
-      });*/
+    
       this.app.get('*', (req, res) => {
-        res.sendFile(path.join(__dirname, 'client/build/index.html'));
+        res.sendFile(path.join(__dirname, "../../../client", "build", "index.html"));
       });
     }
 
