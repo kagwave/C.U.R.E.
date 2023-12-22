@@ -1,0 +1,35 @@
+.instructor-courses-home-pg {
+  background: white;
+  width: 80%;
+  height: inherit;
+  margin-top: 50px;
+}
+
+.instructor-courses-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.instructor-courses-container-item {
+  border: 1px solid rgb(211, 209, 209);
+  display: flex;
+  width: calc(100px + 5vw);
+  height: calc(100px + 5vw);
+  justify-content: center;
+  margin: 0 calc(10px + 0.5vw) calc(10px + 0.5vw) 0;
+  align-items: center;
+}
+
+.instructor-courses-container-item:hover {
+  background-color: whitesmoke;
+  cursor: pointer;
+}
+
+.instructor-courses-container-item h1 {
+  font-family: 'Univers';
+  font-size: calc(12px + 0.3vw);
+}
+
+@media screen and (max-width: 1000px) {
+  .instructor-courses-home-pg {width: 90%;}
+}

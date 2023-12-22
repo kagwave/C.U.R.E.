@@ -1,11 +1,12 @@
 import './Landing.css';
+import './App.css';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../redux/store';
 
-import StudentHome from '../_Student/Home/Home';
-import CollaboratorHome from '../_Collaborator/Home/Home';
-import InstructorHome from '../_Instructor/Home/Home';
+import StudentApp from '../_Student/App';
+import CollaboratorApp from '../_Collaborator/App';
+import InstructorApp from '../_Instructor/App';
 import { Route, Routes } from 'react-router-dom';
 import PageNotFound from '../PageNotFound';
 
@@ -15,9 +16,9 @@ const Landing = () => {
 
   return (isLoggedIn ?
     <>
-      {userType === 'student' && <StudentHome/>}
-      {userType === 'collaborator' && <CollaboratorHome/>}
-      {userType === 'instructor' && <InstructorHome/>}
+      {userType === 'student' && <StudentApp/>}
+      {userType === 'collaborator' && <CollaboratorApp/>}
+      {userType === 'instructor' && <InstructorApp/>}
     </>
   :
     <Routes>

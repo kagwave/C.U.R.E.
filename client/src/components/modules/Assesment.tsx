@@ -1,4 +1,5 @@
-import './Form.css';
+import './*.css';
+import React from 'react';
 
 const Assessment = (props: any) => {
 

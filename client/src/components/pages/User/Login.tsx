@@ -1,7 +1,7 @@
 import './Login.css'
 
 import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { setUserType } from '../../../redux/slices/auth';
 
 import ModalOverlay from '../../interface/ModalOverlay';
@@ -11,8 +11,11 @@ import { faBuildingColumns } from '@fortawesome/free-solid-svg-icons';
 
 import auth from '../../../utils/auth/auth';
 import UserIcon from '../../misc/UserIcon';
+import { RootState } from '../../../redux/store';
 
 const Login = () => {
+
+  const { isLoggedIn } = useSelector((state: RootState) => state.auth);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -21,13 +24,18 @@ const Login = () => {
     const handler = (e: any) => {
       if (e.target.id === 'modal-overlay') {navigate('/');}
     }
+
+    if (isLoggedIn) {
+      navigate('/');
+    }
+    
     document.addEventListener("click", handler, true);
     
     return () => {
       document.removeEventListener("click", handler, true);
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [isLoggedIn]);
 
 
   return (
@@ -55,7 +63,7 @@ const Login = () => {
             </div>
 
             <div className='login-option' 
-              onClick={() => {dispatch(setUserType('collborator')); auth.login()}}
+              onClick={() => {dispatch(setUserType('collaborator')); auth.login()}}
             >
               <UserIcon type="collaborator"/>
               <h1>Collaborator</h1>

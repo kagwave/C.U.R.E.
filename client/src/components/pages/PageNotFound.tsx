@@ -1,12 +1,16 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import MountDisplay from '../interface/tools/MountDisplay';
 
 const PageNotFound = () => {
 
   const navigate = useNavigate();
 
   useEffect(() => {
+    MountDisplay(undefined, undefined);
     navigate('/404');
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (  
@@ -18,7 +22,7 @@ const PageNotFound = () => {
         <h2>
           404 Error: The requested /url destination cannot be found.
         </h2>
-        <button style={{color: 'white', margin: '8px'}}
+        <button className="ease-in-quick" style={{color: 'white', margin: '8px'}}
           onClick={() => navigate('/')}>
           Go Home
         </button>

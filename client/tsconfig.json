@@ -18,7 +18,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": false, // Updated to emit JavaScript
-    "jsx": "react-jsx"
+    "jsx": "react"
   },
   "include": [
     "./src/**/*.ts", // Updated to include all TypeScript files under src

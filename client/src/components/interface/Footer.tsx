@@ -19,10 +19,7 @@ const Footer = () => {
           <div id="footer-credits">
             {<img className="sponsor-logo" alt="NCSU" style={{borderRadius: '5px', margin: '0 0 10px 0'}} height="200%" src={ncsu} />}
           </div>
-          <h1>
-            Department of Chemistry
-          </h1>
-          <h2>chemistry.sciences.ncsu.edu</h2>
+          <h2>ncsu.edu</h2>
         </div>
 
         <div className="footer-links" style={{display: window.innerWidth < 900 ? 'none' : 'flex'}}>

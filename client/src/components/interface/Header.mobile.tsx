@@ -2,16 +2,13 @@ import './Header.mobile.css';
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router';
 import { NavLink } from 'react-router-dom';
-
-import logo from '../../media/images/ncsu.png';
-
-import MountDisplay from './tools/MountDisplay';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
+
+import MountDisplay from './tools/MountDisplay';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
-import auth from '../../utils/auth/auth';
-
+import logo from '../../media/images/ncsu.png';
 
 const HeaderMobile = () => {
 
@@ -28,6 +25,23 @@ const HeaderMobile = () => {
       closeMenu();
     }
   }, []);
+
+  // set click handler to close menu when clicked outside
+  useEffect(() => {
+    const handler = (e: any) => {
+      if (e.target.id !== 'nav-menu-mobile' || e.target.className !== 'navlink-mobile active') {
+        closeMenu();
+        document.removeEventListener('click', handler, true);
+      }
+    }
+
+    if (isMenuOpen) {
+      document.addEventListener('click', handler, true);
+    }
+    return () => {
+      document.removeEventListener('click', handler, true);
+    }
+  }, [isMenuOpen]);
 
   const openMenu = () => {
     let body = document.getElementById("page-content"); 
@@ -58,10 +72,9 @@ const HeaderMobile = () => {
     }
     document.body.style.overflow = "hidden";
     setIsMenuOpen(true);
-    return;
   }
 
-  const closeMenu = async () => {
+  const closeMenu = () => {
     let body = document.getElementById("page-content"); 
     let navmenu = document.getElementById("nav-menu-mobile");
     let navbtn = document.querySelector(".nav-dropbtn-mobile");
@@ -91,7 +104,6 @@ const HeaderMobile = () => {
     }
     document.body.style.overflow = "auto";
     setIsMenuOpen(false);
-    return;
   }
 
   const showNavigation = () => {
@@ -106,7 +118,7 @@ const HeaderMobile = () => {
 
     <div className="header-bar-mobile">
 
-      <div className="logo-mobile" onClick={() => {navigate('/'); closeMenu()}}>
+      <div className="logo-mobile" onClick={() => {if (isMenuOpen) closeMenu(); navigate('/'); }}>
         <img src={logo} height={"70%"} alt="NCSU"/>
         <div className="banner-text">
           <h1>
@@ -129,22 +141,15 @@ const HeaderMobile = () => {
       </button>
 
       <div id="nav-menu-mobile" className="hide-element slide-in-menu">
-
         <div className="menu-options-mobile">
-          <ul style={{listStyleType: "none", padding: "0 0 0 2vh", marginTop: '10px', textAlign: "center"}}>
-            <li>
-              <NavLink className="navlink-mobile" onClick={closeMenu} to="/account" >
-                <i className="fa-sharp fa-light fa-file-user" style={{marginRight: '5px'}}></i>
-                Account 
-              </NavLink>
-            </li>
-            <li>
-              <NavLink className="navlink-mobile" to="/logout" onClick={() => {closeMenu()}}> 
-              <i className="fa-sharp fa-light fa-arrow-right-from-bracket" style={{marginRight: '5px'}}></i>
-                Logout
-              </NavLink>
-            </li>
-          </ul>
+          <NavLink className="navlink-mobile" onClick={closeMenu} to="/account" >
+            <i className="fa-sharp fa-light fa-file-user" style={{marginRight: '5px'}}></i>
+            Account 
+          </NavLink>
+          <NavLink className="navlink-mobile" onClick={closeMenu} to="/logout"> 
+            <i className="fa-sharp fa-light fa-arrow-right-from-bracket" style={{marginRight: '5px'}}></i>
+            Logout
+          </NavLink>
         </div>
 
       </div>
