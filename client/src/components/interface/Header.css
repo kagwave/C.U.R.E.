@@ -32,7 +32,7 @@
   font-weight: lighter;
   font-family: 'Univers';
   margin: 0 0 0 10px;
-  font-size: calc(20px + 0.3vw);
+  font-size: calc(17px + 0.5vw);
 }
 .banner-text h2 {
   color: rgb(135, 135, 135);

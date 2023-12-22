@@ -72,7 +72,9 @@ const Login = () => {
         </div>
 
         <div className="login-footer">
-          <div className="modal-footer-text"></div>
+          <div className="login-footer-text">
+            <h1 style={{visibility: 'hidden'}}>NCSU</h1>
+          </div>
         </div>
 
       </div>

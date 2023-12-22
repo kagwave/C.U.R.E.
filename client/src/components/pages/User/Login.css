@@ -14,7 +14,9 @@
   background:white;
   height: fit-content;
   width: 50%;
+  min-width: 250px;
   max-width: 80vw;
+  min-height: fit-content;
   height: 50vh;
   margin: auto;
   z-index: 100;
@@ -60,6 +62,7 @@
   display: flex;
   height: 80%;
   width: 100%;
+  padding: 20px 0;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -75,8 +78,10 @@
 
 .login-option {
   background: white;
-  min-height: 100px;
-  min-width: 200px;
+  min-height: 10vh;
+  min-width: 10vw;
+  max-width: 200px;
+  padding: 10px;
   border: 1px solid red;
   display: flex;
   flex-direction: column;
@@ -115,12 +120,21 @@
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.modal-footer-text {
+.login-footer-text {
+  display: flex;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 9px;
   color: white;
   text-align: center;
   padding: 3px;
+}
+
+.login-footer-text h1 {
+  font-family: "Univers";
+  font-size: calc(15px + 0.3vw);
+  color: white;
+  margin-left: 10px;
+  text-align: center;
 }
 
 
@@ -149,10 +163,11 @@
 
 
 @media screen and (max-width: 1300px) {
+  #login-modal {height: fit-content;}
   .login-options {flex-direction: column; align-items: center; justify-content: space-evenly;}
   .login-option {width: 50%; margin: 5px 20px;}
 }
 
 @media screen and (max-width: 500px) {
-  #login-modal {width: auto}
+  #login-modal {width: auto; height: 50vh;}
 }

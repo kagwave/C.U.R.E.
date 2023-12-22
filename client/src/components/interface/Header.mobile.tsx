@@ -137,10 +137,6 @@ const HeaderMobile = () => {
           </ul>
         </div>
 
-        <div className="bottom-panel-mobile">
-
-        </div>
-
       </div>
 
     </div>

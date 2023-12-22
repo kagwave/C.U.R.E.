@@ -30,6 +30,10 @@
   color: black
 }
 
+.home-navlink.active {
+  color: #CC0000;
+}
+
 .home-navlink:hover {
   background: rgb(230, 230, 230);
   transition: ease-in-out 0.2;
