@@ -132,8 +132,18 @@ const HeaderMobile = () => {
 
         <div className="menu-options-mobile">
           <ul style={{listStyleType: "none", padding: "0 0 0 2vh", marginTop: '10px', textAlign: "center"}}>
-            <li><NavLink className="navlink-mobile" onClick={closeMenu} to="/account" >Account</NavLink></li>
-            <li><div className="navlink-mobile" onClick={() => {closeMenu(); auth.logout()}}> Logout</div></li>
+            <li>
+              <NavLink className="navlink-mobile" onClick={closeMenu} to="/account" >
+                <i className="fa-sharp fa-light fa-file-user" style={{marginRight: '5px'}}></i>
+                Account 
+              </NavLink>
+            </li>
+            <li>
+              <NavLink className="navlink-mobile" to="/logout" onClick={() => {closeMenu()}}> 
+              <i className="fa-sharp fa-light fa-arrow-right-from-bracket" style={{marginRight: '5px'}}></i>
+                Logout
+              </NavLink>
+            </li>
           </ul>
         </div>
 

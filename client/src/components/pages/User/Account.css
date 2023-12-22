@@ -14,39 +14,41 @@
 
 .account-pg-main {
   width: 80%;
-  padding-top: 50px;
+  padding: 40px 0 20px 0;
 }
 .account-pg-header  {
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid gray;
-  padding-left: 30px;
-  padding-right: 30px;
+  padding-left: calc(10px + 1vw);
+  padding-right: calc(10px + 1vw);
   align-items: baseline;
+  padding-bottom: 10px;
 }
 .account-pg-header h1 {
   font-weight: lighter;
   display: flex;
   flex-direction: row;
   align-items: baseline;
-  font-size: calc(25px + 0.2vw);
+  font-size: calc(20px + 0.4vw);
+  margin: 0;
 }
 
 .account-pg-header h2 {
   font-weight: lighter;
   font-size: calc(13px + 0.2vw);
+  margin: 0;
 }
 
 .account-pg-header h3 {
   font-weight: lighter;
   font-size: calc(14px + 0.2vw);
-  margin: 0 0 0 20px;
+  margin: 0 0 0 calc(5px + 0.5vw);
   color: #CC0000
 }
 
 .account-items {
-  padding-left: 30px;
-  padding-right: 30px;
+  padding: 0 calc(10px + 1vw) 0 calc(10px + 1vw);
 }
 
 .account-item {
@@ -64,6 +66,7 @@
 }
 
 @media screen and (max-width: 900px) {
-  .account-pg {flex-direction: column;}
+  .account-pg {flex-direction: column-reverse; justify-content: flex-end;}
+  .account-pg-sidebar {width: 100%;}
   .account-pg-main {width: 100%;}
 }

@@ -30,7 +30,6 @@ a {
   width: 100%;
   margin: auto;
   min-height: calc(100vh - 70px);
-  min-width: 300px;
 }
 
 
@@ -49,13 +48,34 @@ a {
   background: black;
   color: white;
   font-family: 'Univers';
-  padding: 15px 10px;
+  font-size: calc(10px + 0.3vw);
+  padding: calc(7px + 1vw) calc(8px + 1vw);
   cursor: pointer;
 }
 
 .not-found button:hover {
   background-color: #CC0000;
   color: white;
+}
+
+.not-found h1 {
+  margin: 20px;
+  font-family: 'Univers';
+  font-size: calc(20px + 0.6vw);
+  color: white;
+  text-align: center;
+  overflow: hidden;
+}
+
+.not-found h2 {
+  margin: 5px;
+  font-family: "Roboto";
+  font-size: calc(13px + 0.2vw);
+  color: rgb(0, 0, 0);
+  font-weight: lighter;
+  text-align: center;
+  max-width: 60%;
+  overflow: hidden;
 }
 
 

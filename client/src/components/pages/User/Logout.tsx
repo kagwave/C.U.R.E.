@@ -1,4 +1,4 @@
-import { useEffect } from "react"
+import React, { useEffect } from "react"
 import auth from "../../../utils/auth/auth"
 
 const Logout = () => {
@@ -7,7 +7,11 @@ const Logout = () => {
     auth.logout();
   }, []);
 
-  return null;
+  return (
+    <div id="page-content">
+
+    </div>
+  );
 }
 
 export default Logout;

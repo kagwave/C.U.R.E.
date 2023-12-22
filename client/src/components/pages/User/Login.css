@@ -25,7 +25,6 @@
   justify-content: center;
   align-items: center;
   border-radius: 10px;
-  border: 1px solid white;
 }
 
 
@@ -38,6 +37,9 @@
   align-items: center;
   background: #CC0000;
   border-radius: 10px 10px 0 0 ;
+  border-top: 1px solid white;
+  border-left: 1px solid white;
+  border-right: 1px solid white;
 }
 .login-header-text  {
   font-size: calc(15px + 0.3vw);
@@ -67,6 +69,8 @@
   align-items: center;
   justify-content: center;
   background: whitesmoke;
+  border-left: 1px solid white;
+  border-right: 1px solid white;
 }
 
 .login-options {
@@ -118,6 +122,9 @@
   background: #CC0000;
   text-align: center;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  border-bottom: 1px solid white;
+  border-left: 1px solid white;
+  border-right: 1px solid white;
 }
 
 .login-footer-text {

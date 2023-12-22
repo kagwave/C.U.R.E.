@@ -12,6 +12,7 @@
   height: 7vh;
   opacity: 1;
   box-shadow: 1px 1px 20px rgb(189, 188, 188);
+  overflow:hidden;
 }
 
 .logo-mobile { 

@@ -34,13 +34,13 @@ const Footer = () => {
 
         <div className="footer-icons">
           <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">
-            <FontAwesomeIcon icon={faLinkedin} size="2x" className="fa fa-facebook"/> 
+            <FontAwesomeIcon icon={faLinkedin} className="fa fa-facebook"/> 
           </a>
           <a href="https://www.facebook.com/" target="_blank" rel="noreferrer">
-            <FontAwesomeIcon icon={faFacebook} size="2x" className="fa fa-facebook"/> 
+            <FontAwesomeIcon icon={faFacebook} className="fa fa-facebook"/> 
           </a>
           <a href="https://www.instagram.com" target="_blank" rel="noreferrer">
-          <FontAwesomeIcon icon={faInstagram} size="2x"  className="fa fa-instagram"/> 
+          <FontAwesomeIcon icon={faInstagram} className="fa fa-instagram"/> 
           </a>
         </div>
 
