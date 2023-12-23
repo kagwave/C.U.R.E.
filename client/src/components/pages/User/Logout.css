@@ -1,0 +1,16 @@
+.logout-pg {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+  align-items: center;
+  justify-content: center;
+}
+
+.logout-pg h1 {
+  color: #c5aaaa;
+  font-size: calc(15px + 0.5vw);
+  font-family: 'Univers';
+  font-weight: lighter;
+  margin: 20px 0;
+}

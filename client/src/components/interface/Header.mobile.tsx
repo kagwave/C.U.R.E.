@@ -6,8 +6,10 @@ import { useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
 
 import MountDisplay from './tools/MountDisplay';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
+
 import logo from '../../media/images/ncsu.png';
 
 const HeaderMobile = () => {
@@ -29,7 +31,7 @@ const HeaderMobile = () => {
   // set click handler to close menu when clicked outside
   useEffect(() => {
     const handler = (e: any) => {
-      if (e.target.id !== 'nav-menu-mobile' || e.target.className !== 'navlink-mobile active') {
+      if (e.target.id !== 'nav-menu-mobile' && e.target.className !== 'navlink-mobile active') {
         closeMenu();
         document.removeEventListener('click', handler, true);
       }
@@ -37,13 +39,14 @@ const HeaderMobile = () => {
 
     if (isMenuOpen) {
       document.addEventListener('click', handler, true);
-    }
+    } 
+
     return () => {
       document.removeEventListener('click', handler, true);
     }
   }, [isMenuOpen]);
 
-  const openMenu = () => {
+  const openMenu = async () => {
     let body = document.getElementById("page-content"); 
     let navmenu = document.getElementById("nav-menu-mobile");
     let navbtn = document.querySelector(".nav-dropbtn-mobile");
@@ -107,9 +110,10 @@ const HeaderMobile = () => {
   }
 
   const showNavigation = () => {
-    if (isMenuOpen === false){
+    if (!isMenuOpen){
       openMenu();
     } else {
+      console.log('cshou')
       closeMenu();
     }
   }
@@ -131,7 +135,7 @@ const HeaderMobile = () => {
         {!isLoggedIn ?
           <NavLink className="navlink" to="/login">Login</NavLink>
         :
-          <div className="dropbtn" onClick={showNavigation}>
+          <div className="dropbtn" onClick={() => showNavigation()}>
             <div id="seperator" style={{height: '100%', width: '2px', margin: '0 10px', background: 'rgb(200,200,200)'}}></div>
             <img src={user.profile_photo} id="profile_icon" alt={user.display_name}/>
             <span className="freespace"></span>

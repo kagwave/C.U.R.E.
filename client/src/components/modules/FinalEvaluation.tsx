@@ -86,7 +86,7 @@ const FinalEvaluation = () => {
           (rubric[currentSection].questions.map((question: string, index: number) => (
             <div key={index} className="question-container">
               <div className='question-container-question'>
-                <p>{question}</p>
+                <p>{index+1}. {question}</p>
               </div>
               <GroupRating handleScoreChange={handleScoreChange} section={currentSection} question={index+1} rubricScores={rubricScores}/>
             </div>

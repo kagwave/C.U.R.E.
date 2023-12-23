@@ -1,20 +1,37 @@
+.student-journal-pg {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .summary-container {
   min-width: 70%;
   max-width: 90%;
   display: flex;
   flex-direction: column;
-  margin-bottom: 50px;
+  margin: 30px 0;
 }
 .summary-container h2 {
-  font-size: calc(20px + 0.4vw);
+  font-size: calc(17px + 0.6vw);
   margin: 10px 0 5px 0;
+  font-weight: 300;
 }
 
 .summary-container h3 {
   font-size: calc(13px + 0.2vw);
   font-weight: lighter;
+  font-weight: 300;
 }
 
 .summary-input {
   min-height: 200px;
+  border-radius: 10px;
+  border: 1px solid rgb(219, 219, 219);
+  text-indent: 0px;
+  padding: 15px;
+}
+
+@media screen and (max-width: 1000px) {
+  .summary-container {min-width: 90%;}
 }

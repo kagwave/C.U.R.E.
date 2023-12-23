@@ -10,33 +10,46 @@ const CoursesHome = () => {
   }, []);
 
   return (
-    <div className='instructor-courses-home-pg'>
-      <div className='instructor-'>
+    <div className='instructor-dashboard-home-pg'>
 
+ 
+      <div className='instructor-dashboard-announcements'>
+        <div className='instructor-dashboard-courses-home-header'>
+          <h1>Announcements</h1>
+        </div>
+        <input className="instructor-new-accouncement" placeholder='Write an update...'/>
       </div>
-      <div className='instructor-courses-container'>
-        <div className='instructor-courses-container-item'>
-          <h1>+ Add a Course</h1>
+
+      <div className='instructor-dashboard-courses'>
+        <div className='instructor-dashboard-courses-home-header'>
+          <h1>My Courses</h1>
         </div>
-        <div className='instructor-courses-container-item'>
-          <h1>+ Add a Course</h1>
-        </div>
-        <div className='instructor-courses-container-item'>
-          <h1>+ Add a Course</h1>
-        </div>
-        <div className='instructor-courses-container-item'>
-          <h1>+ Add a Course</h1>
-        </div>
-        <div className='instructor-courses-container-item'>
-          <h1>+ Add a Course</h1>
-        </div>
-        <div className='instructor-courses-container-item'>
-          <h1>+ Add a Course</h1>
-        </div>
-        <div className='instructor-courses-container-item'>
-          <h1>+ Add a Course</h1>
+        <div className='instructor-dashboard-courses-container'>
+          <div className='instructor-dashboard-courses-container-item'>
+            <h1>+ New Course</h1>
+          </div>
+          <div className='instructor-dashboard-courses-container-item'>
+            <h1>+ New Course</h1>
+          </div>
+          <div className='instructor-dashboard-courses-container-item'>
+            <h1>+ New Course</h1>
+          </div>
+          <div className='instructor-dashboard-courses-container-item'>
+            <h1>+ New Course</h1>
+          </div>
+          <div className='instructor-dashboard-courses-container-item'>
+            <h1>+ New Course</h1>
+          </div>
+          <div className='instructor-dashboard-courses-container-item'>
+            <h1>+ New Course</h1>
+          </div>
+          <div className='instructor-dashboard-courses-container-item'>
+            <h1>+ New Course</h1>
+          </div>
         </div>
       </div>
+
+
     </div>
   )
 }

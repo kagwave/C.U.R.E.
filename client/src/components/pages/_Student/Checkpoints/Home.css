@@ -1,0 +1,74 @@
+.student-checkpoints-pg {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.student-checkpoints-header {
+  width: 80%;
+  display: flex;
+  align-items: center;
+  height: calc(2vw + 25px);
+  padding: 7px 0;
+  border-bottom: 1px solid whitesmoke;
+  justify-content: flex-end;
+}
+
+.student-checkpoints-header h1 {
+  margin: 1vw 5vw 1vw 0;
+  font-weight: 400;
+  font-size: calc(11px + 0.4vw);
+  color: gray;
+  font-family: 'Univers';
+}
+
+#student-checkpoint-connector {
+  width: 5vw;
+  margin: auto 0;
+  height: 4px;
+  background-color: rgb(157, 157, 157);
+  opacity: 0.3;
+  
+}
+
+.student-checkpoints-container {
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly; 
+  height: 100%;
+  margin: auto;
+  padding: 5vw 0;
+}
+
+.student-checkpoints-container-item {
+  border: 1px solid rgb(173, 173, 173);
+  background: rgb(255, 252, 252);
+  min-width: 20%;
+  min-height: 10vh;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box; /* Include border in width and height calculations */
+  cursor: pointer;
+}
+.student-checkpoints-container-item:hover {
+  background: whitesmoke;
+}
+
+.student-checkpoints-container-item h1 {
+  font-family: 'Univers';
+  font-size: calc(17px + 0.7vw);
+  width: 80%;
+}
+
+@media screen and (max-width: 1000px) {
+  .student-checkpoints-container {width: 90%; align-content: space-evenly; flex-direction: column; align-items: center;}
+  .student-checkpoints-container-item {width: 90%;}
+  #student-checkpoint-connector {width: 4px; height: 30px; margin: 10px 0;}
+  .student-checkpoints-header { width: 100%;}
+  .student-checkpoints-container-item h1 {width: 90%; }
+}

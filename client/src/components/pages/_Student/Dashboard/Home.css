@@ -1,13 +1,36 @@
-.home-pg-announcements {
+.student-dashboard-home-pg {
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  min-height: 100%;
+  justify-content: space-evenly;
+  margin-top: calc(20px + 2vw);
+}
+
+.student-dashbboard-item-header {
+  border: 1px white smoke;
+}
+.student-dashbboard-item-header h1 {
+  font-family: 'Univers';
+  font-size: calc(13px + 0.3vw);
+  margin: 20px 20px;
+}
+
+.student-dashboard-announcements {
+  width: 40%;
+  border: 1px solid black;
+  height: 100%;
+}
+
+.student-dashboard-progress {
   width: 40%;
   border: 1px solid black;
 }
 
-.home-pg h1 {
-  font-size: calc(15px + 0.3vw);
-}
 
-.home-pg-progress {
-  width: 40%;
-  border: 1px solid black;
+
+@media screen and (max-width: 1000px) {
+  .student-dashboard-home-pg {flex-direction: column;}
+  .student-dashboard-announcements {width: 100%;}
+  .student-dashboard-progress {width: 100%;}
 }

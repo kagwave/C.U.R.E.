@@ -1,12 +1,11 @@
 import AOS from 'aos'; 
 import 'aos/dist/aos.css';
-import './fonts.css'
-import './media/loaders/macOS.css'
-import './media/loaders/basic.css';
 
 //React Hooks
 import React, { useEffect, useState } from 'react';
 import { useRoutes } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { RootState } from './redux/store';
 
 //UI
 import Header from './components/interface/Header';
@@ -16,16 +15,14 @@ import Footer from './components/interface/Footer';
 //Pages
 import Home from './components/pages/Landing/Landing';
 import Login from './components/pages/User/Login';
+import Logout from './components/pages/User/Logout';
 import Account from './components/pages/User/Account';
 import PageNotFound from './components/pages/PageNotFound';
 
 import ErrorAlert from './components/interface/ErrorAlert';
+import Loader from './media/loaders/*';
 
 import auth from './utils/auth/auth';
-import { useSelector } from 'react-redux';
-import { RootState } from './redux/store';
-import Logout from './components/pages/User/Logout';
-
 
 const routes = [
   { path: '/*', element: <Home />},
@@ -41,7 +38,9 @@ function App() {
   const [dimensions, setDimensions] = useState({width: 0, height: 0});
   const breakpoint = 900;
 
-  const elements = useRoutes(routes);
+  const AppRouter = useRoutes(routes);
+
+  const [userIsFetched, setUserIsFetched] = useState(false);
 
   useEffect(() => {
     AOS.init({
@@ -53,6 +52,7 @@ function App() {
 
     (async () => {
       await auth.getUser();
+      setUserIsFetched(true);
     })();
   }, []);
   
@@ -65,17 +65,26 @@ function App() {
   return ( 
     <div className="App">
 
-      {error && <ErrorAlert/>}
+      {userIsFetched ? <>
 
-      {dimensions.width > breakpoint ? 
-        <Header/>
-      : 
-        <HeaderMobile/>
+        {error && <ErrorAlert/>}
+
+        {dimensions.width > breakpoint ? 
+          <Header/>
+        : 
+          <HeaderMobile/>
+        }
+
+        {AppRouter}
+
+        <Footer />
+      
+      </>
+      :
+
+        <Loader type='basic'/>
+
       }
-
-      {elements}
-
-      <Footer />
 
     </div>
   );

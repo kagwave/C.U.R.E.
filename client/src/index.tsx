@@ -1,5 +1,5 @@
 import './index.css';
-import './fonts.css'
+import './fonts.css';
 import App from './App';
 
 import React from 'react';

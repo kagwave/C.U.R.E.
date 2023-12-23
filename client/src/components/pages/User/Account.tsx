@@ -7,6 +7,7 @@ import { capitalize } from '../../../tools/capitalize';
 
 import UserIcon from '../../misc/UserIcon';
 import { useNavigate } from 'react-router-dom';
+import Loader from '../../../media/loaders/*';
 
 const Account = () => {
 
@@ -39,7 +40,9 @@ const Account = () => {
           </div>
           <div className='account-pg-main'>
             <div className='account-pg-header'>
-              <h1>{user.display_name} <h3>{user.unity_id ? user.unity_id : user.collaborator_id}</h3></h1>
+              <div className='account-pg-header-name'>
+                <h1>{user.display_name}</h1> <h3>{user.unity_id ? user.unity_id : user.collaborator_id}</h3>
+              </div>
               <h2>
                 <UserIcon type={user.account_type}/>
                 {capitalize(user.account_type)}</h2>
@@ -57,7 +60,7 @@ const Account = () => {
           </div>
         </div>
       :
-        <div id="basic-loader"/>
+        <Loader type="basic"/>
       }
     </div>
   )

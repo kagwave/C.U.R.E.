@@ -5,7 +5,7 @@ import React from "react";
 const WeeklyJournal = () => {
 
   return (
-    <div id="page-content">
+    <div className="student-journal-pg">
       
       <div className='module-header'>
         <div id="seperator" style={{height: '2px', background: 'gray'}}></div>
