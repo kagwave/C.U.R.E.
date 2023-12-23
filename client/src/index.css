@@ -117,6 +117,8 @@ body {
 @media screen and (max-width: 900px) {
   #page-content { min-height: 93vh }
   #header-mobile {box-shadow: none;}
+  #modal-overlay {height: calc(100% - 7vh)}
+  #page-content {padding-top: 7vh; min-height: calc(100vh - 7vh);}
 }
 
 
