@@ -1,6 +1,6 @@
 import './Landing.css';
 import './App.css';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../redux/store';
 
@@ -9,10 +9,15 @@ import CollaboratorApp from '../_Collaborator/App';
 import InstructorApp from '../_Instructor/App';
 import { Route, Routes } from 'react-router-dom';
 import PageNotFound from '../PageNotFound';
+import MountDisplay from '../../interface/tools/MountDisplay';
 
 const Landing = () => {
 
   const { isLoggedIn, userType } = useSelector((state: RootState) => state.auth);
+
+  useEffect(() => {
+    MountDisplay(undefined, undefined);
+  }, []);
 
   return (isLoggedIn ?
     <>

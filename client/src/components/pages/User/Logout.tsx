@@ -1,18 +1,18 @@
 import './Logout.css';
 import React, { useEffect } from "react";
+import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../redux/store'
-
 
 import ModalOverlay from "../../interface/ModalOverlay";
 import Loader from '../../../media/loaders/*';
 
 import auth from "../../../utils/auth/auth";
-import { hostUrl } from '../../../utils/urls';
 
 const Logout = () => {
 
   const { isLoggedIn } = useSelector((state: RootState) => state.auth);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (isLoggedIn) {
@@ -24,8 +24,9 @@ const Logout = () => {
         }
       })()
     } else {
-      window.open(`${hostUrl}/login`, '_self');
+      navigate('/login');
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isLoggedIn]);
 
   return (

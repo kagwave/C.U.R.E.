@@ -4,6 +4,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { setUserType } from '../../../redux/slices/auth';
 
+import MountDisplay from '../../interface/tools/MountDisplay';
 import ModalOverlay from '../../interface/ModalOverlay';
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -21,6 +22,7 @@ const Login = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    MountDisplay(undefined, "Login");
     const handler = (e: any) => {
       if (e.target.id === 'modal-overlay') {navigate('/');}
     }

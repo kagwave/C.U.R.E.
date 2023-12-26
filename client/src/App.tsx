@@ -4,7 +4,7 @@ import 'aos/dist/aos.css';
 //React Hooks
 import React, { useEffect, useState } from 'react';
 import { useRoutes } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from './redux/store';
 
 //UI
@@ -18,11 +18,12 @@ import Login from './components/pages/User/Login';
 import Logout from './components/pages/User/Logout';
 import Account from './components/pages/User/Account';
 import PageNotFound from './components/pages/PageNotFound';
+import PreLoading from './components/pages/PreLoading';
 
 import ErrorAlert from './components/interface/ErrorAlert';
-import Loader from './media/loaders/*';
 
 import auth from './utils/auth/auth';
+import { setUserIsFetched } from './redux/slices/general';
 
 const routes = [
   { path: '/*', element: <Home />},
@@ -34,13 +35,13 @@ const routes = [
 
 function App() {
   
-  const { error } = useSelector((state: RootState) => state.general);
+  const { error, userIsFetched } = useSelector((state: RootState) => state.general);
   const [dimensions, setDimensions] = useState({width: 0, height: 0});
   const breakpoint = 900;
 
-  const AppRouter = useRoutes(routes);
+  const dispatch = useDispatch();
 
-  const [userIsFetched, setUserIsFetched] = useState(false);
+  const AppRouter = useRoutes(routes);
 
   useEffect(() => {
     AOS.init({
@@ -50,10 +51,19 @@ function App() {
     updateDimensions();
     window.addEventListener('resize', updateDimensions);
 
-    (async () => {
-      await auth.getUser();
-      setUserIsFetched(true);
-    })();
+    if (!userIsFetched) {
+      (async () => {
+        try {
+          await auth.getUser();
+          dispatch(setUserIsFetched(true));
+        } catch (err) {
+          //handle this
+          return null;
+        }
+      })();
+    }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   
   const updateDimensions = () => {
@@ -65,26 +75,21 @@ function App() {
   return ( 
     <div className="App">
 
-      {userIsFetched ? <>
+      {error && <ErrorAlert/>}
 
-        {error && <ErrorAlert/>}
-
-        {dimensions.width > breakpoint ? 
-          <Header/>
-        : 
-          <HeaderMobile/>
-        }
-
-        {AppRouter}
-
-        <Footer />
-      
-      </>
-      :
-
-        <Loader type='basic'/>
-
+      {dimensions.width > breakpoint ? 
+        <Header/>
+      : 
+        <HeaderMobile/>
       }
+
+      {userIsFetched ? 
+        AppRouter
+      : 
+        <PreLoading/>
+      }
+
+      <Footer />
 
     </div>
   );

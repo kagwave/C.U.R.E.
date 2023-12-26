@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   online: true,
   language: 'en-US',
-  userFetched: false,
+  userIsFetched: false,
   error: null,
 };
 
@@ -11,8 +11,8 @@ export const generalSlice = createSlice({
   name: 'general',
   initialState,
   reducers: {
-    setUserFetched: (state, action) => {
-      state.userFetched = action.payload;
+    setUserIsFetched: (state, action) => {
+      state.userIsFetched = action.payload;
       return state;
     },
     setOnline: (state, action) => {
@@ -26,6 +26,6 @@ export const generalSlice = createSlice({
   },
 })
 
-export const { setUserFetched, setErrorAlert } = generalSlice.actions
+export const { setUserIsFetched, setErrorAlert } = generalSlice.actions
 
 export default generalSlice.reducer;
