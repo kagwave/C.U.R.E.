@@ -1,0 +1,17 @@
+FROM node:20
+
+LABEL version="1.0"
+LABEL description="Server Docker Image - Node.js"
+LABEL maintainer = ["kamuchan@ncsu.edu"]
+
+WORKDIR /usr/src/app
+
+COPY package*.json ./
+
+RUN npm install
+
+COPY . .
+
+EXPOSE 8080
+
+CMD ["npm", "start"]
